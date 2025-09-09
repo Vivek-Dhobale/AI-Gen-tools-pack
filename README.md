@@ -1,75 +1,78 @@
-# 🛠️ Tools Pack - Professional Multi-Tool Suite
+# 🛠️ Tools Pack - Professional Multi-Tool Suite  
+![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg) ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
-A modern, responsive, and all-in-one **web-based toolkit** designed for students.
-This single-page application provides a collection of everyday utilities like calculators, converters, text tools, and encoders — all accessible in one place.
+A **modern, all-in-one web-based toolkit** for developers, students, and professionals.  
+This suite provides fast, lightweight, and offline-ready utilities, designed with **productivity, speed, and accessibility** in mind.  
 
 ---
 
 ## 🚀 Features
 
-- **🔢 Calculator**  
-  Simple and intuitive calculator with operators, delete, and clear options.
-
-- **⚖️ Unit Converter**  
-  Convert between **length**, **weight**, and **temperature** seamlessly.
-
-- **📝 Text Utilities**  
-  - Transform text to **UPPERCASE**, **lowercase**, or **Title Case**  
-  - Remove extra spaces  
-  - Live text statistics (characters, words, lines)
-
-- **🔐 Base64 Encoder/Decoder**  
-  Encode and decode text in **Base64** format.
-
-- **🌐 URL Encoder/Decoder** *(Planned / In-progress)*  
-  Easily encode or decode URLs and URI components.
-
-- **⌨️ Command Palette (Ctrl + K)**  
-  Quickly search and jump to tools with a command-style launcher.
-
-- **🔍 Smart Search**  
-  Real-time filtering of tools with keyword search.
-
-- **📱 Responsive Design**  
-  Optimized for desktop, tablet, and mobile.
+- 📄 **JPG to PDF Converter** – Combine & convert multiple images into a single PDF  
+- 🖼️ **Image Resizer & Compressor** – Resize and compress images without losing quality  
+- 🧮 **Calculator** – Simple yet powerful math operations  
+- ⚖️ **Unit Converter** – Convert between length, weight, and temperature  
+- 📝 **Text Utilities** – Uppercase, lowercase, word/character counter  
+- 🔐 **Base64 Encoder/Decoder** – Encode or decode text in Base64  
+- 🌐 **URL Encoder/Decoder** – Convert URLs safely for web use  
+- 📋 **JSON Formatter/Validator** – Beautify, validate, or minify JSON data  
+- 🔒 **Password Generator** – Create strong, customizable passwords  
+- 🆔 **UUID Generator** – Generate unique IDs in bulk  
+- 🔑 **Hash Generator** – SHA-256 hashing for text  
+- 🎨 **Color Picker & Contrast Checker** – Improve accessibility with live contrast ratio  
+- ⏱️ **Stopwatch & Timer** – Track time with precision  
+- 📝 **Quick Notes** – Save notes locally in your browser  
+- 📱 **QR Code Generator** – Generate scannable QR codes instantly  
+- 🔍 **Regex Tester** – Test and debug your regex patterns  
+- 📊 **CSV ⇆ JSON Converter** – Convert between CSV and JSON formats  
+- 📄 **Lorem Ipsum Generator** – Generate placeholder text for projects  
 
 ---
 
-## 🖥️ Tech Stack
+## 📸 Screenshots
 
-- **HTML5** – Semantic structure  
-- **CSS3** – Custom styling with modern UI (dark theme)  
-- **Vanilla JavaScript** – Interactivity and tool logic  
-
-No frameworks, lightweight, and runs entirely in the browser.
+### Main Dashboard  
+![Dashboard](https://via.placeholder.com/800x400.png?text=Tools+Pack+Dashboard)
 
 ---
 
-## 🌟 Future Enhancements
+## 🎯 Usage
 
-✅ Add URL Encoder/Decoder (UI exists)
+Use the search bar 🔍 to quickly find tools
 
-✅ Add Timer & Stopwatch tools
+Switch between utilities without reloading
 
-✅ Add Color Picker with contrast checker
+Works offline once loaded
 
-✅ Add Notes manager with persistent storage
+---
+
+## 🌟 Tech Stack
+
+HTML5 – Semantic structure
+
+CSS3 – Modern responsive design with animations
+
+JavaScript (ES6) – Core logic & interactivity
+
+LocalStorage API – Save notes & settings offline
+
+---
+
+## 👨‍💻 Author
+
+Vivek Munjaji Dhobale
+🔗 [GitHub]('https://github.com/Vivek-Dhobale')| [LinkedIn]('https://linkedin.com/in/vivek-dhobale-vr')
+
+
+---
+
+## 📜 License
+Copyright (c) 2025 Vivek Munjaji Dhobale
+This project is licensed under the MIT License – you’re free to use, modify, and distribute it.
+
 
 
 
 ---
 
-## 👨‍💻 Developer
-
-Developed with ❤️ by Vivek Dhobale
-(Feel free to fork and contribute!)
-
-
----
-
-📜 License
-
-This project is licensed under the MIT License – free to use, modify, and distribute.
-
----
 > ⭐ If you find this project useful, don’t forget to give it a star to support the development!
