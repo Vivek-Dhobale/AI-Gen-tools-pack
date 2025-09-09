@@ -32,7 +32,7 @@ This suite provides fast, lightweight, and offline-ready utilities, designed wit
 ## 📸 View Web
 
 ### Main Dashboard  
-![Dashboard](https://vivek-dhobale.github.io/AI-Gen-tools-pack/)
+[Dashboard](https://vivek-dhobale.github.io/AI-Gen-tools-pack/)
 
 ---
 
