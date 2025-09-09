@@ -1,7 +1,7 @@
 # 🛠️ Tools Pack - Professional Multi-Tool Suite  
 ![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg) ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
-A **modern, all-in-one web-based toolkit** for developers, students, and professionals.  
+A **modern, all-in-one web-based toolkit** for students. 
 This suite provides fast, lightweight, and offline-ready utilities, designed with **productivity, speed, and accessibility** in mind.  
 
 ---
