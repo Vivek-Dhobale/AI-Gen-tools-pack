@@ -60,8 +60,8 @@ LocalStorage API – Save notes & settings offline
 
 ## 👨‍💻 Author
 
-Vivek Munjaji Dhobale
-🔗 [GitHub]('https://github.com/Vivek-Dhobale')| [LinkedIn]('https://linkedin.com/in/vivek-dhobale-vr')
+Vivek Munjaji Dhobale</br>
+🔗 ![GitHub]('https://github.com/Vivek-Dhobale')| ![LinkedIn]('https://linkedin.com/in/vivek-dhobale-vr')
 
 
 ---
