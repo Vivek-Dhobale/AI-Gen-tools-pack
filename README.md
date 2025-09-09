@@ -29,10 +29,10 @@ This suite provides fast, lightweight, and offline-ready utilities, designed wit
 
 ---
 
-## 📸 Screenshots
+## 📸 View Web
 
 ### Main Dashboard  
-![Dashboard](https://via.placeholder.com/800x400.png?text=Tools+Pack+Dashboard)
+![Dashboard](https://vivek-dhobale.github.io/AI-Gen-tools-pack)
 
 ---
 
@@ -61,7 +61,7 @@ LocalStorage API – Save notes & settings offline
 ## 👨‍💻 Author
 
 Vivek Munjaji Dhobale</br>
-🔗 ([GitHub]('https://github.com/Vivek-Dhobale'))| [[LinkedIn]('https://linkedin.com/in/vivek-dhobale-vr')]
+🔗 ![GitHub]('https://github.com/Vivek-Dhobale')| ![LinkedIn]('https://linkedin.com/in/vivek-dhobale-vr')
 
 
 ---
