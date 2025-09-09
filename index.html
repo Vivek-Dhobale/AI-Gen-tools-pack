@@ -1,0 +1,3537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools Pack - Professional Multi-Tool Suite</title>
+    <meta name="description" content="Complete collection of web-based tools for developers and professionals">
+    
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0F0F23 0%, #1E1E2F 50%, #2D1B69 100%);
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        /* Animated background particles */
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .aa{
+            text-decoration: none;
+            color:  #D1D5DB;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(96, 165, 250, 0.3);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(30, 30, 47, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(96, 165, 250, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #8B5CF6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            align-items: center;
+            text-decoration: none;
+            text-shadow: 0 0 30px rgba(96, 165, 250, 0.5);
+        }
+
+        .dev, .foot {
+            background: linear-gradient(135deg, #374151 0%, #4B5563 100%);
+            padding: 0.5rem 1rem;
+            border-radius: 0.75rem;
+            font-size: 0.85rem;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            color: #D1D5DB;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #374151 0%, #4B5563 100%);
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            border-radius: 0.5rem;
+            color: #D1D5DB;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
+        }
+        
+        /* Profile Image Styles */
+        .profile-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid rgba(96, 165, 250, 0.5);
+            box-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+            transition: all 0.3s ease;
+            animation: profilePulse 3s ease-in-out infinite;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.1) rotate(5deg);
+            border-color: rgba(96, 165, 250, 0.8);
+            box-shadow: 0 0 30px rgba(96, 165, 250, 0.6);
+        }
+        
+        @keyframes profilePulse {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+                border-color: rgba(96, 165, 250, 0.5);
+            }
+            50% { 
+                box-shadow: 0 0 30px rgba(96, 165, 250, 0.6);
+                border-color: rgba(96, 165, 250, 0.8);
+            }
+        }
+        
+        /* Profile Image Styles */
+        .profile-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid rgba(96, 165, 250, 0.5);
+            box-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+            transition: all 0.3s ease;
+            animation: profilePulse 3s ease-in-out infinite;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.1) rotate(5deg);
+            border-color: rgba(96, 165, 250, 0.8);
+            box-shadow: 0 0 30px rgba(96, 165, 250, 0.6);
+        }
+        
+        @keyframes profilePulse {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+                border-color: rgba(96, 165, 250, 0.5);
+            }
+            50% { 
+                box-shadow: 0 0 30px rgba(96, 165, 250, 0.6);
+                border-color: rgba(96, 165, 250, 0.8);
+            }
+        }
+        
+        .search-container {
+            position: relative;
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 3rem;
+            background: rgba(55, 65, 81, 0.8);
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            border-radius: 0.75rem;
+            color: #E5E7EB;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #60A5FA;
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2), 0 0 20px rgba(96, 165, 250, 0.3);
+            background: rgba(55, 65, 81, 0.95);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #60A5FA;
+            font-size: 1.1rem;
+        }
+
+        .command-hint {
+            font-size: 0.85rem;
+            color: #9CA3AF;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .kbd {
+            background: linear-gradient(135deg, #374151 0%, #4B5563 100%);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* FIXED: Updated grid for 3 tools per row on desktop */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Special class for drag-and-drop tools to span full width */
+        .tool-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* Tool Card Styles with Enhanced Animations */
+        .tool-card {
+            background: linear-gradient(145deg, rgba(45, 55, 72, 0.9) 0%, rgba(26, 32, 44, 0.9) 100%);
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .tool-card:hover::before {
+            left: 100%;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(96, 165, 250, 0.25), 0 0 40px rgba(96, 165, 250, 0.1);
+            border-color: rgba(96, 165, 250, 0.5);
+            background: linear-gradient(145deg, rgba(45, 55, 72, 0.95) 0%, rgba(26, 32, 44, 0.95) 100%);
+        }
+
+        .tool-card.hidden {
+            display: none;
+        }
+
+        /* Ad Card Styles */
+        .ad-card {
+            background: linear-gradient(145deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border: 2px dashed rgba(96, 165, 250, 0.3);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .ad-card:hover {
+            border-color: rgba(96, 165, 250, 0.6);
+            background: linear-gradient(145deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+        }
+
+        .ad-placeholder {
+            width: 100%;
+            height: 200px;
+            background: rgba(55, 65, 81, 0.5);
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            margin-bottom: 1rem;
+        }
+
+        .ad-placeholder h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #60A5FA;
+        }
+
+        .ad-placeholder p {
+            color: #9CA3AF;
+            font-size: 0.9rem;
+        }
+
+        .tool-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tool-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.3));
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .tool-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #F9FAFB 0%, #60A5FA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tool-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Enhanced Form Elements */
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 1rem;
+            align-items: end;
+        }
+
+        label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #D1D5DB;
+            text-shadow: 0 0 10px rgba(96, 165, 250, 0.2);
+        }
+
+        input, select, textarea {
+            padding: 1rem;
+            background: rgba(55, 65, 81, 0.8);
+            border: 1px solid rgba(75, 85, 99, 0.5);
+            border-radius: 0.75rem;
+            color: #E5E7EB;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            backdrop-filter: blur(10px);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #60A5FA;
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2), 0 0 20px rgba(96, 165, 250, 0.1);
+            background: rgba(55, 65, 81, 0.95);
+            transform: translateY(-2px);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #2563EB 100%);
+            color: white;
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 50%, #1D4ED8 100%);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+        }
+
+        .btn:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .btn:disabled {
+            background: linear-gradient(135deg, #6B7280 0%, #4B5563 100%);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 4px 15px rgba(107, 114, 128, 0.2);
+        }
+
+        .btn:disabled:hover {
+            transform: none;
+            box-shadow: 0 4px 15px rgba(107, 114, 128, 0.2);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #6B7280 0%, #4B5563 100%);
+            box-shadow: 0 4px 15px rgba(107, 114, 128, 0.4);
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #4B5563 0%, #374151 100%);
+            box-shadow: 0 8px 25px rgba(107, 114, 128, 0.6);
+        }
+
+        .result-area {
+            background: rgba(31, 41, 55, 0.8);
+            border: 1px solid rgba(55, 65, 81, 0.5);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            min-height: 80px;
+            word-break: break-all;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            backdrop-filter: blur(10px);
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Enhanced Calculator Styles */
+        .calculator-display {
+            background: linear-gradient(145deg, rgba(31, 41, 55, 0.9) 0%, rgba(17, 24, 39, 0.9) 100%);
+            border: 2px solid rgba(96, 165, 250, 0.3);
+            padding: 1.5rem;
+            text-align: right;
+            font-size: 2rem;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(96, 165, 250, 0.1);
+            color: #60A5FA;
+            font-weight: 700;
+            backdrop-filter: blur(20px);
+        }
+
+        .calculator-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+        }
+
+        .calc-btn {
+            padding: 1.5rem;
+            border: 1px solid rgba(75, 85, 99, 0.5);
+            background: linear-gradient(145deg, rgba(55, 65, 81, 0.9) 0%, rgba(31, 41, 55, 0.9) 100%);
+            color: #E5E7EB;
+            border-radius: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .calc-btn:hover {
+            background: linear-gradient(145deg, rgba(75, 85, 99, 0.9) 0%, rgba(55, 65, 81, 0.9) 100%);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(96, 165, 250, 0.3);
+            border-color: rgba(96, 165, 250, 0.5);
+        }
+
+        .calc-btn:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .calc-btn.operator {
+            background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .calc-btn.operator:hover {
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+        }
+
+        .calc-btn.equals {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .calc-btn.equals:hover {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.6);
+        }
+
+        /* PDF Converter Styles */
+        .file-upload-area {
+            border: 2px dashed rgba(96, 165, 250, 0.3);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            background: rgba(31, 41, 55, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .file-upload-area:hover {
+            border-color: rgba(96, 165, 250, 0.6);
+            background: rgba(31, 41, 55, 0.5);
+        }
+
+        .file-upload-area.dragover {
+            border-color: #60A5FA;
+            background: rgba(96, 165, 250, 0.1);
+        }
+
+        /* Timer Display */
+        .timer-display {
+            background: linear-gradient(145deg, rgba(31, 41, 55, 0.9) 0%, rgba(17, 24, 39, 0.9) 100%);
+            padding: 3rem;
+            text-align: center;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 30px rgba(96, 165, 250, 0.1);
+            backdrop-filter: blur(20px);
+        }
+
+        .timer-time {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #8B5CF6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Courier New', monospace;
+            text-shadow: 0 0 30px rgba(96, 165, 250, 0.5);
+        }
+
+        /* Color Picker */
+        .color-preview {
+            width: 100%;
+            height: 80px;
+            border-radius: 1rem;
+            border: 2px solid rgba(96, 165, 250, 0.3);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .contrast-result {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-top: 0.75rem;
+            font-weight: 600;
+        }
+
+        .contrast-aa { 
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+        .contrast-aaa { 
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
+        }
+        .contrast-fail { 
+            background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+        }
+
+        /* Notes */
+        .notes-list {
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .note-item {
+            background: rgba(55, 65, 81, 0.8);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(75, 85, 99, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .note-item:hover {
+            background: rgba(55, 65, 81, 0.95);
+            transform: translateX(5px);
+        }
+
+        .note-content {
+            flex: 1;
+            word-break: break-word;
+        }
+
+        .note-date {
+            font-size: 0.85rem;
+            color: #9CA3AF;
+            white-space: nowrap;
+            margin-left: 1rem;
+        }
+
+        .delete-note {
+            background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.85rem;
+            cursor: pointer;
+            margin-left: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .delete-note:hover {
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            transform: scale(1.05);
+        }
+
+        /* Command Palette */
+        .command-palette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            display: none;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 10vh;
+        }
+
+        .command-palette.active {
+            display: flex;
+        }
+
+        .command-content {
+            background: linear-gradient(145deg, rgba(31, 41, 55, 0.95) 0%, rgba(17, 24, 39, 0.95) 100%);
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 500px;
+            max-height: 60vh;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .command-input {
+            width: 100%;
+            padding: 1.5rem;
+            border: none;
+            background: transparent;
+            color: #E5E7EB;
+            font-size: 1.2rem;
+            border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+        }
+
+        .command-input:focus {
+            outline: none;
+        }
+
+        .command-results {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .command-item {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(55, 65, 81, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .command-item:hover,
+        .command-item.selected {
+            background: rgba(96, 165, 250, 0.1);
+        }
+
+        .command-item-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .command-item-desc {
+            font-size: 0.85rem;
+            color: #9CA3AF;
+        }
+
+        /* Footer Enhancement - MOVED TO BOTTOM */
+        .foot {
+            text-align: center;
+            margin: 3rem 0 1rem;
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+
+        /* Responsive Design - FIXED FOR 3 CARDS PER ROW */
+        @media (min-width: 1024px) {
+            .tools-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .input-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .timer-time {
+                font-size: 2.5rem;
+            }
+
+            .tool-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Utility Classes */
+        .text-success { color: #10B981; }
+        .text-error { color: #EF4444; }
+        .text-warning { color: #F59E0B; }
+        .hidden { display: none !important; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mt-2 { margin-top: 0.5rem; }
+
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(96, 165, 250, 0.3);
+            border-radius: 50%;
+            border-top-color: #60A5FA;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Image preview for resizer */
+        .image-preview-container {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid rgba(55, 65, 81, 0.5);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            background: rgba(31, 41, 55, 0.5);
+        }
+
+        .image-preview-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            background: rgba(55, 65, 81, 0.5);
+            border-radius: 0.5rem;
+        }
+
+        .image-preview-thumb {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 0.25rem;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+        }
+
+        /* Performance optimizations */
+        .tools-grid {
+            will-change: transform;
+        }
+
+        .tool-card {
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background particles -->
+    <div class="bg-particles">
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 6s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 8s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 10s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 12s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 14s;"></div>
+        <div class="particle" style="left: 90%; animation-delay: 16s;"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">🛠️ Tools Pack</a>
+        
+            <div class="search-container">
+                <span class="search-icon">🔍</span>
+                <input 
+                    type="text" 
+                    class="search-input" 
+                    placeholder="Search tools..." 
+                    id="searchInput"
+                    aria-label="Search tools"
+                >
+            </div>
+            
+            <div class="command-hint">
+                Press <span class="kbd">Ctrl</span> + <span class="kbd">K</span> for quick access
+            </div>
+            <div class="dev" style="gap: 1rem;">
+                🔗 Developed by Vivek Dhobale
+                <div class="social-icons">
+                    <a href="https://github.com/Vivek-Dhobale" class="social-icon" target="_blank" rel="noopener noreferrer">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/vivek-dhobale-vr" class="social-icon" target="_blank" rel="noopener noreferrer">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Profile image on the right -->
+            <img src="" alt="Profile" id="profileImage" class="profile-image" title="Welcome!" />
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="tools-grid" id="toolsGrid">
+            
+            <!-- Ad Card 1 -->
+            <div class="ad-card">
+                <div class="ad-placeholder">
+                    <h3>📢 Advertisement</h3>
+                    <p>Your ad could be here!</p>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Google Ads Space</p>
+                </div>
+                <p style="color: #9CA3AF; font-size: 0.85rem;">This space is reserved for Google Ads to help support the development of free tools.</p>
+            </div>
+
+            <!-- Ad Card 2 (Header Row) -->
+            <div class="ad-card">
+                <div class="ad-placeholder">
+                    <h3>🎯 Sponsored</h3>
+                    <p>Advertise your business</p>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Premium Ad Space</p>
+                </div>
+                <p style="color: #9CA3AF; font-size: 0.85rem;">Reach thousands of developers and professionals with targeted advertising.</p>
+            </div>
+
+            <!-- Ad Card 3 (Header Row) -->
+            <div class="ad-card">
+                <div class="ad-placeholder">
+                    <h3>💼 Business</h3>
+                    <p>Promote your services</p>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Featured Ads</p>
+                </div>
+                <p style="color: #9CA3AF; font-size: 0.85rem;">Connect with our community of tech enthusiasts and potential customers.</p>
+            </div>
+
+            <!-- JPG to PDF Converter -->
+            <div class="tool-card full-width" data-tool="jpg-to-pdf" data-keywords="jpg pdf convert image document file conversion">
+                <div class="tool-header">
+                    <span class="tool-icon">📄</span>
+                    <h2 class="tool-title">JPG to PDF Converter</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="input-group">
+                        <label for="jpgInput">Select JPG Images</label>
+                        <div class="file-upload-area" id="jpgUploadArea" onclick="document.getElementById('jpgInput').click()">
+                            <p>📁 Click here or drag & drop JPG files</p>
+                            <p style="font-size: 0.9rem; color: #9CA3AF; margin-top: 0.5rem;">Multiple files supported</p>
+                        </div>
+                        <input type="file" id="jpgInput" accept="image/jpeg,image/jpg" multiple style="display: none;">
+                    </div>
+                    <div class="input-group">
+                        <label>Selected Images</label>
+                        <div id="imagePreviewContainer" class="result-area" style="min-height: 100px; max-height: 200px; overflow-y: auto;">
+                            No images selected
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="pdfQuality">PDF Quality</label>
+                            <select id="pdfQuality">
+                                <option value="0.8">High Quality</option>
+                                <option value="0.6" selected>Medium Quality</option>
+                                <option value="0.4">Low Quality (Smaller File)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="pageOrientation">Page Orientation</label>
+                            <select id="pageOrientation">
+                                <option value="portrait">Portrait</option>
+                                <option value="landscape">Landscape</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <button class="btn" onclick="convertJPGToPDF()">Convert to PDF</button>
+                        <button class="btn btn-secondary" onclick="clearJPGSelection()">Clear Selection</button>
+                    </div>
+                    <div class="input-group" id="pdfDownloadSection" style="display: none;">
+                        <label>PDF Ready</label>
+                        <button class="btn" onclick="downloadPDF()" id="downloadPDFBtn">📥 Download PDF</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Resizer & Compressor -->
+            <div class="tool-card full-width" data-tool="image-resizer" data-keywords="image resize compress canvas picture photo">
+                <div class="tool-header">
+                    <span class="tool-icon">🖼️</span>
+                    <h2 class="tool-title">Image Resizer & Compressor</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="input-group">
+                        <label for="imageInput">Select Image</label>
+                        <div class="file-upload-area" id="imageUploadArea" onclick="document.getElementById('imageInput').click()">
+                            <p>🖼️ Click here or drag & drop an image</p>
+                            <p style="font-size: 0.9rem; color: #9CA3AF; margin-top: 0.5rem;">Supports JPG, PNG, WebP</p>
+                        </div>
+                        <input type="file" id="imageInput" accept="image/*" onchange="loadImage()" style="display: none;">
+                    </div>
+                    
+                    <div id="imageControlsSection" class="hidden">
+                        <div class="input-group">
+                            <label>Image Preview</label>
+                            <canvas id="imageCanvas" style="max-width: 100%; border: 1px solid #374151; border-radius: 0.5rem; background: rgba(31, 41, 55, 0.5);"></canvas>
+                        </div>
+                        
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="newWidth">Width (px)</label>
+                                <input type="number" id="newWidth" min="1" oninput="maintainAspectRatio('width')">
+                            </div>
+                            <div class="input-group">
+                                <label for="newHeight">Height (px)</label>
+                                <input type="number" id="newHeight" min="1" oninput="maintainAspectRatio('height')">
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="quality">Quality: <span id="qualityValue">90%</span></label>
+                            <input type="range" id="quality" min="10" max="100" value="90" oninput="updateQualityDisplay()">
+                        </div>
+                        
+                        <div class="input-row">
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox" id="maintainAspectRatio" checked onchange="toggleAspectRatio()">
+                                Maintain Aspect Ratio
+                            </label>
+                        </div>
+                        
+                        <div class="input-row">
+                            <button class="btn" onclick="resizeImage()">Resize & Compress</button>
+                            <button class="btn btn-secondary" onclick="resetImageTool()">Reset</button>
+                        </div>
+                        
+                        <div class="input-group" id="downloadSection" style="display: none;">
+                            <label>Processed Image Ready</label>
+                            <div style="display: flex; gap: 1rem; align-items: center; margin-top: 0.5rem;">
+                                <button class="btn" onclick="downloadProcessedImage()">📥 Download Image</button>
+                                <span id="fileSizeInfo" style="color: #9CA3AF; font-size: 0.9rem;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calculator -->
+            <div class="tool-card" data-tool="calculator" data-keywords="math arithmetic calculate numbers">
+                <div class="tool-header">
+                    <span class="tool-icon">🧮</span>
+                    <h2 class="tool-title">Calculator</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="calculator-display" id="calcDisplay">0</div>
+                    <div class="calculator-buttons" id="calcButtons">
+                        <button class="calc-btn" onclick="clearCalc()">C</button>
+                        <button class="calc-btn" onclick="deleteLast()">⌫</button>
+                        <button class="calc-btn operator" onclick="appendToCalc('/')">÷</button>
+                        <button class="calc-btn operator" onclick="appendToCalc('*')">×</button>
+                        
+                        <button class="calc-btn" onclick="appendToCalc('7')">7</button>
+                        <button class="calc-btn" onclick="appendToCalc('8')">8</button>
+                        <button class="calc-btn" onclick="appendToCalc('9')">9</button>
+                        <button class="calc-btn operator" onclick="appendToCalc('-')">-</button>
+                        
+                        <button class="calc-btn" onclick="appendToCalc('4')">4</button>
+                        <button class="calc-btn" onclick="appendToCalc('5')">5</button>
+                        <button class="calc-btn" onclick="appendToCalc('6')">6</button>
+                        <button class="calc-btn operator" onclick="appendToCalc('+')">+</button>
+                        
+                        <button class="calc-btn" onclick="appendToCalc('1')">1</button>
+                        <button class="calc-btn" onclick="appendToCalc('2')">2</button>
+                        <button class="calc-btn" onclick="appendToCalc('3')">3</button>
+                        <button class="calc-btn equals" onclick="calculate()" rowspan="2">=</button>
+                        
+                        <button class="calc-btn" onclick="appendToCalc('0')" colspan="2">0</button>
+                        <button class="calc-btn" onclick="appendToCalc('.')">.</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unit Converter -->
+            <div class="tool-card" data-tool="unit-converter" data-keywords="convert units length weight temperature measure">
+                <div class="tool-header">
+                    <span class="tool-icon">⚖️</span>
+                    <h2 class="tool-title">Unit Converter</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="input-group">
+                        <label for="unitType">Conversion Type</label>
+                        <select id="unitType" onchange="updateUnitOptions()">
+                            <option value="length">Length</option>
+                            <option value="weight">Weight</option>
+                            <option value="temperature">Temperature</option>
+                        </select>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="fromValue">From</label>
+                            <input type="number" id="fromValue" placeholder="Enter value" oninput="convertUnits()">
+                        </div>
+                        <div class="input-group">
+                            <label for="fromUnit">Unit</label>
+                            <select id="fromUnit" onchange="convertUnits()"></select>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="toValue">To</label>
+                            <input type="number" id="toValue" readonly>
+                        </div>
+                        <div class="input-group">
+                            <label for="toUnit">Unit</label>
+                            <select id="toUnit" onchange="convertUnits()"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Utilities -->
+            <div class="tool-card" data-tool="text-utilities" data-keywords="text transform uppercase lowercase count words characters">
+                <div class="tool-header">
+                    <span class="tool-icon">📝</span>
+                    <h2 class="tool-title">Text Utilities</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="input-group">
+                        <label for="textInput">Input Text</label>
+                        <textarea id="textInput" placeholder="Enter your text here..." oninput="updateTextStats()"></textarea>
+                    </div>
+                    <div class="input-row">
+                        <button class="btn" onclick="transformText('upper')">UPPERCASE</button>
+                        <button class="btn" onclick="transformText('lower')">lowercase</button>
+                        <button class="btn" onclick="transformText('title')">Title Case</button>
+                        <button class="btn btn-secondary" onclick="transformText('spaces')">Remove Spaces</button>
+                    </div>
+                    <div class="result-area" id="textStats">
+                        Characters: 0 | Words: 0 | Lines: 0
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Card 4 (Middle) -->
+            <div class="ad-card">
+                <div class="ad-placeholder">
+                    <h3>🎯 Sponsored Content</h3>
+                    <p>Promote your business here</p>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Google Ads Integration</p>
+                </div>
+                <p style="color: #9CA3AF; font-size: 0.85rem;">Help us keep these tools free by supporting our sponsors.</p>
+            </div>
+
+            <!-- Base64 Encoder/Decoder -->
+            <div class="tool-card" data-tool="base64" data-keywords="base64 encode decode encryption text">
+                <div class="tool-header">
+                    <span class="tool-icon">🔐</span>
+                    <h2 class="tool-title">Base64 Encoder/Decoder</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="input-group">
+                        <label for="base64Input">Input</label>
+                        <textarea id="base64Input" placeholder="Enter text or Base64..."></textarea>
+                    </div>
+                    <div class="input-row">
+                        <button class="btn" onclick="encodeBase64()">Encode</button>
+                        <button class="btn btn-secondary" onclick="decodeBase64()">Decode</button>
+                    </div>
+                    <div class="input-group">
+                        <label>Result</label>
+                        <div class="result-area" id="base64Result"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- URL Encoder/Decoder -->
+            <div class="tool-card" data-tool="url-encoder" data-keywords="url encode decode uri component web">
+                <div class="tool-header">
+                    <span class="tool-icon">🌐</span>
+                    <h2 class="tool-title">URL Encoder/Decoder</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="input-group">
+                        <label for="urlInput">Input</label>
+                        <textarea id="urlInput" placeholder="Enter URL or encoded text..."></textarea>
+                    </div>
+                    <div class="input-row">
+                        <button class="btn" onclick="encodeURL()">Encode</button>
+                        <button class="btn btn-secondary" onclick="decodeURL()">Decode</button>
+                    </div>
+                    <div class="input-group">
+                        <label>Result</label>
+                        <div class="result-area" id="urlResult"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JSON Formatter/Validator -->
+            <div class="tool-card" data-tool="json-formatter" data-keywords="json format validate prettify minify">
+                <div class="tool-header">
+                    <span class="tool-icon">📋</span>
+                    <h2 class="tool-title">JSON Formatter/Validator</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="input-group">
+                        <label for="jsonInput">JSON Input</label>
+                        <textarea id="jsonInput" placeholder="Enter JSON here..."></textarea>
+                    </div>
+                    <div class="input-row">
+                        <button class="btn" onclick="formatJSON()">Format & Validate</button>
+                        <button class="btn btn-secondary" onclick="minifyJSON()">Minify</button>
+                    </div>
+                    <div class="input-group">
+                        <label>Result</label>
+                        <div class="result-area" id="jsonResult"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Password Generator -->
+            <div class="tool-card" data-tool="password-generator" data-keywords="password generate secure random strength">
+                <div class="tool-header">
+                    <span class="tool-icon">🔒</span>
+                    <h2 class="tool-title">Password Generator</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="passwordLength">Length</label>
+                            <input type="number" id="passwordLength" min="4" max="128" value="16">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Options</label>
+                        <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox" id="includeUppercase" checked>
+                                Uppercase (A-Z)
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox" id="includeLowercase" checked>
+                                Lowercase (a-z)
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox" id="includeNumbers" checked>
+                                Numbers (0-9)
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox" id="includeSymbols">
+                                Symbols (!@#$%^&*)
+                            </label>
+                        </div>
+                    </div>
+                    <button class="btn" onclick="generatePassword()">Generate Password</button>
+                    <div class="input-group">
+                        <label>Generated Password</label>
+                        <div class="result-area" id="passwordResult" style="cursor: pointer;" onclick="copyToClipboard('passwordResult')" title="Click to copy"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UUID Generator - FIXED -->
+            <div class="tool-card" data-tool="uuid-generator" data-keywords="uuid generate identifier unique random v4">
+                <div class="tool-header">
+                    <span class="tool-icon">🆔</span>
+                    <h2 class="tool-title">UUID Generator</h2>
+                </div>
+                <div class="tool-content">
+                    <button class="btn" onclick="generateUUID()">Generate UUID v4</button>
+                    <div class="input-group">
+                        <label>Generated UUID</label>
+                        <div class="result-area" id="uuidResult" style="cursor: pointer;" onclick="copyToClipboard('uuidResult')" title="Click to copy"></div>
+                    </div>
+                    <div class="input-group">
+                        <label for="uuidCount">Generate Multiple</label>
+                        <div class="input-row">
+                            <input type="number" id="uuidCount" min="1" max="100" value="5">
+                            <button class="btn btn-secondary" onclick="generateMultipleUUIDs()">Generate</button>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Multiple UUIDs</label>
+                        <div class="result-area" id="multipleUuidResult"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hash Generator -->
+            <div class="tool-card" data-tool="hash-generator" data-keywords="hash sha256 crypto checksum digest">
+                <div class="tool-header">
+                    <span class="tool-icon">🔑</span>
+                    <h2 class="tool-title">Hash Generator</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="input-group">
+                        <label for="hashInput">Input Text</label>
+                        <textarea id="hashInput" placeholder="Enter text to hash..."></textarea>
+                    </div>
+                    <button class="btn" onclick="generateHash()">Generate SHA-256 Hash</button>
+                    <div class="input-group">
+                        <label>Hash Result</label>
+                        <div class="result-area" id="hashResult" style="cursor: pointer;" onclick="copyToClipboard('hashResult')" title="Click to copy"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Card 5 (Bottom) -->
+            <div class="ad-card">
+                <div class="ad-placeholder">
+                    <h3>💡 Premium Tools</h3>
+                    <p>Unlock advanced features</p>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Advertisement Space</p>
+                </div>
+                <p style="color: #9CA3AF; font-size: 0.85rem;">Discover premium productivity tools and services.</p>
+            </div>
+
+            <!-- Color Picker & Contrast Checker -->
+            <div class="tool-card" data-tool="color-picker" data-keywords="color picker contrast accessibility hex rgb hsl">
+                <div class="tool-header">
+                    <span class="tool-icon">🎨</span>
+                    <h2 class="tool-title">Color Picker & Contrast</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="colorPicker">Color</label>
+                            <input type="color" id="colorPicker" value="#60A5FA" onchange="updateColorInfo()">
+                        </div>
+                        <div class="input-group">
+                            <label for="bgColorPicker">Background</label>
+                            <input type="color" id="bgColorPicker" value="#1E1E2F" onchange="updateColorInfo()">
+                        </div>
+                    </div>
+                    <div class="color-preview" id="colorPreview"></div>
+                    <div class="input-group">
+                        <label>Color Values</label>
+                        <div class="result-area" id="colorValues"></div>
+                    </div>
+                    <div class="input-group">
+                        <label>Contrast Ratio</label>
+                        <div id="contrastResult"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stopwatch & Timer -->
+            <div class="tool-card" data-tool="timer" data-keywords="timer stopwatch countdown clock time">
+                <div class="tool-header">
+                    <span class="tool-icon">⏱️</span>
+                    <h2 class="tool-title">Stopwatch & Timer</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="input-group">
+                        <div class="input-row">
+                            <button class="btn" onclick="switchTimerMode('stopwatch')" id="stopwatchBtn">Stopwatch</button>
+                            <button class="btn btn-secondary" onclick="switchTimerMode('countdown')" id="countdownBtn">Countdown</button>
+                        </div>
+                    </div>
+                    
+                    <div id="stopwatchMode">
+                        <div class="timer-display">
+                            <div class="timer-time" id="stopwatchTime">00:00:00.00</div>
+                        </div>
+                        <div class="input-row">
+                            <button class="btn" onclick="startStopwatch()" id="stopwatchStart">Start</button>
+                            <button class="btn btn-secondary" onclick="pauseStopwatch()" id="stopwatchPause">Pause</button>
+                            <button class="btn btn-secondary" onclick="resetStopwatch()">Reset</button>
+                        </div>
+                    </div>
+                    
+                    <div id="countdownMode" class="hidden">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="countdownMinutes">Minutes</label>
+                                <input type="number" id="countdownMinutes" min="0" max="59" value="5">
+                            </div>
+                            <div class="input-group">
+                                <label for="countdownSeconds">Seconds</label>
+                                <input type="number" id="countdownSeconds" min="0" max="59" value="0">
+                            </div>
+                        </div>
+                        <div class="timer-display">
+                            <div class="timer-time" id="countdownTime">05:00</div>
+                        </div>
+                        <div class="input-row">
+                            <button class="btn" onclick="startCountdown()" id="countdownStart">Start</button>
+                            <button class="btn btn-secondary" onclick="pauseCountdown()" id="countdownPause">Pause</button>
+                            <button class="btn btn-secondary" onclick="resetCountdown()">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Notes -->
+            <div class="tool-card" data-tool="notes" data-keywords="notes notepad text save remember localStorage">
+                <div class="tool-header">
+                    <span class="tool-icon">📝</span>
+                    <h2 class="tool-title">Quick Notes</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="input-group">
+                        <label for="noteInput">Add Note</label>
+                        <textarea id="noteInput" placeholder="Write your note here..."></textarea>
+                    </div>
+                    <div class="input-row">
+                        <button class="btn" onclick="addNote()">Save Note</button>
+                        <button class="btn btn-secondary" onclick="clearAllNotes()">Clear All</button>
+                    </div>
+                    <div class="input-group">
+                        <label>Saved Notes</label>
+                        <div class="notes-list" id="notesList"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QR Code Generator -->
+            <div class="tool-card" data-tool="qr-generator" data-keywords="qr code generator barcode scan mobile">
+                <div class="tool-header">
+                    <span class="tool-icon">📱</span>
+                    <h2 class="tool-title">QR Code Generator</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="input-group">
+                        <label for="qrInput">Text or URL</label>
+                        <textarea id="qrInput" placeholder="Enter text or URL to generate QR code..."></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="qrSize">QR Code Size</label>
+                        <select id="qrSize">
+                            <option value="200">Small (200x200)</option>
+                            <option value="300" selected>Medium (300x300)</option>
+                            <option value="400">Large (400x400)</option>
+                            <option value="500">Extra Large (500x500)</option>
+                        </select>
+                    </div>
+                    <button class="btn" onclick="generateQR()">Generate QR Code</button>
+                    <div class="input-group">
+                        <label>Generated QR Code</label>
+                        <div class="result-area" id="qrResult" style="text-align: center; min-height: 150px; display: flex; align-items: center; justify-content: center;">QR Code will appear here</div>
+                    </div>
+                    <div class="input-group" id="qrDownloadSection" style="display: none;">
+                        <button class="btn btn-secondary" onclick="downloadQR()">📥 Download QR Code</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regex Tester -->
+            <div class="tool-card" data-tool="regex-tester" data-keywords="regex regular expression pattern match test">
+                <div class="tool-header">
+                    <span class="tool-icon">🔍</span>
+                    <h2 class="tool-title">Regex Tester</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="input-group">
+                        <label for="regexPattern">Regular Expression Pattern</label>
+                        <input type="text" id="regexPattern" placeholder="Enter regex pattern (e.g., \d{3}-\d{3}-\d{4})" oninput="testRegex()">
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox" id="regexGlobal" onchange="testRegex()" checked>
+                                Global (g)
+                            </label>
+                        </div>
+                        <div class="input-group">
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox" id="regexIgnoreCase" onchange="testRegex()">
+                                Ignore Case (i)
+                            </label>
+                        </div>
+                        <div class="input-group">
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox" id="regexMultiline" onchange="testRegex()">
+                                Multiline (m)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="regexTestText">Test Text</label>
+                        <textarea id="regexTestText" placeholder="Enter text to test against the regex pattern..." oninput="testRegex()"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label>Matches</label>
+                        <div class="result-area" id="regexResult">Enter a pattern and test text to see matches</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CSV to JSON Converter -->
+            <div class="tool-card" data-tool="csv-json" data-keywords="csv json convert data format table">
+                <div class="tool-header">
+                    <span class="tool-icon">📊</span>
+                    <h2 class="tool-title">CSV to JSON Converter</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="input-group">
+                        <label for="csvInput">CSV Data</label>
+                        <textarea id="csvInput" placeholder="Enter CSV data with headers...\nExample:\nname,age,city\nJohn,25,New York\nJane,30,London"></textarea>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="csvDelimiter">Delimiter</label>
+                            <select id="csvDelimiter">
+                                <option value="," selected>Comma (,)</option>
+                                <option value=";">Semicolon (;)</option>
+                                <option value="\t">Tab (\t)</option>
+                                <option value="|">Pipe (|)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox" id="csvHasHeaders" checked>
+                                First row contains headers
+                            </label>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <button class="btn" onclick="convertCSVToJSON()">Convert to JSON</button>
+                        <button class="btn btn-secondary" onclick="convertJSONToCSV()">Convert to CSV</button>
+                    </div>
+                    <div class="input-group">
+                        <label>JSON Output</label>
+                        <div class="result-area" id="csvJsonResult">Converted data will appear here</div>
+                    </div>
+                    <div class="input-group" id="csvDownloadSection" style="display: none;">
+                        <button class="btn btn-secondary" onclick="downloadConvertedData()">📥 Download Result</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lorem Ipsum Generator -->
+            <div class="tool-card" data-tool="lorem-ipsum" data-keywords="lorem ipsum placeholder text generator dummy">
+                <div class="tool-header">
+                    <span class="tool-icon">📄</span>
+                    <h2 class="tool-title">Lorem Ipsum Generator</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="loremType">Generate</label>
+                            <select id="loremType">
+                                <option value="paragraphs" selected>Paragraphs</option>
+                                <option value="words">Words</option>
+                                <option value="sentences">Sentences</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="loremCount">Count</label>
+                            <input type="number" id="loremCount" min="1" max="50" value="3">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label style="display: flex; align-items: center; gap: 0.5rem;">
+                            <input type="checkbox" id="startWithLorem" checked>
+                            Start with "Lorem ipsum dolor sit amet..."
+                        </label>
+                    </div>
+                    <button class="btn" onclick="generateLorem()">Generate Lorem Ipsum</button>
+                    <div class="input-group">
+                        <label>Generated Text</label>
+                        <div class="result-area" id="loremResult" style="cursor: pointer; max-height: 300px; overflow-y: auto;" onclick="copyToClipboard('loremResult')" title="Click to copy">Generated lorem ipsum text will appear here</div>
+                    </div>
+                    <div class="input-row">
+                        <button class="btn btn-secondary" onclick="copyToClipboard('loremResult')">📋 Copy Text</button>
+                        <button class="btn btn-secondary" onclick="clearLorem()">🗑️ Clear</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PDF Merge Tool -->
+            <div class="tool-card full-width" data-tool="pdf-merge" data-keywords="pdf merge combine join multiple documents">
+                <div class="tool-header">
+                    <span class="tool-icon">📁</span>
+                    <h2 class="tool-title">PDF Merge Tool</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="input-group">
+                        <label for="pdfMergeInput">Select PDF Files</label>
+                        <div class="file-upload-area" id="pdfMergeUploadArea" onclick="document.getElementById('pdfMergeInput').click()">
+                            <p>📁 Click here or drag & drop PDF files</p>
+                            <p style="font-size: 0.9rem; color: #9CA3AF; margin-top: 0.5rem;">Multiple PDF files supported</p>
+                        </div>
+                        <input type="file" id="pdfMergeInput" accept=".pdf" multiple style="display: none;">
+                    </div>
+                    <div class="input-group">
+                        <label>Selected PDF Files</label>
+                        <div id="pdfMergePreviewContainer" class="result-area" style="min-height: 100px; max-height: 200px; overflow-y: auto;">
+                            No PDF files selected
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <button class="btn" onclick="mergePDFs()">🔄 Merge PDFs</button>
+                        <button class="btn btn-secondary" onclick="clearPDFMergeSelection()">🗑️ Clear Selection</button>
+                    </div>
+                    <div class="input-group" id="pdfMergeDownloadSection" style="display: none;">
+                        <label>Merged PDF Ready</label>
+                        <button class="btn" onclick="downloadMergedPDF()" id="downloadMergedPDFBtn">📥 Download Merged PDF</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PDF to Word Converter -->
+            <div class="tool-card full-width" data-tool="pdf-to-word" data-keywords="pdf word docx convert document text">
+                <div class="tool-header">
+                    <span class="tool-icon">🗓️</span>
+                    <h2 class="tool-title">PDF to Word Converter</h2>
+                </div>
+                <div class="tool-content">
+                    <div class="input-group">
+                        <label for="pdfToWordInput">Select PDF File</label>
+                        <div class="file-upload-area" id="pdfToWordUploadArea" onclick="document.getElementById('pdfToWordInput').click()">
+                            <p>🗓️ Click here or drag & drop a PDF file</p>
+                            <p style="font-size: 0.9rem; color: #9CA3AF; margin-top: 0.5rem;">PDF files only</p>
+                        </div>
+                        <input type="file" id="pdfToWordInput" accept=".pdf" style="display: none;">
+                    </div>
+                    <div class="input-group">
+                        <label>Selected PDF</label>
+                        <div id="pdfToWordPreviewContainer" class="result-area" style="min-height: 80px;">
+                            No PDF file selected
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="conversionFormat">Output Format</label>
+                            <select id="conversionFormat">
+                                <option value="docx" selected>Word Document (.docx)</option>
+                                <option value="txt">Plain Text (.txt)</option>
+                                <option value="rtf">Rich Text Format (.rtf)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox" id="preserveFormatting" checked>
+                                Preserve Formatting
+                            </label>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <button class="btn" onclick="convertPDFToWord()">🔄 Convert to Word</button>
+                        <button class="btn btn-secondary" onclick="clearPDFToWordSelection()">🗑️ Clear</button>
+                    </div>
+                    <div class="input-group" id="pdfToWordDownloadSection" style="display: none;">
+                        <label>Converted Document Ready</label>
+                        <button class="btn" onclick="downloadConvertedDocument()" id="downloadConvertedDocBtn">📥 Download Document</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer - MOVED TO BOTTOM -->
+        <footer class="foot">
+            <a href="https://linkedin.com/in/vivek-dhobale-vr" class="aa">Tools Pack © 2025 - All rights reserved</a>
+            <p>Developed by Vivek Dhobale</p>
+        </footer>
+    </main>
+
+    <!-- Command Palette -->
+    <div class="command-palette" id="commandPalette">
+        <div class="command-content">
+            <input type="text" class="command-input" id="commandInput" placeholder="Type to search tools..." autocomplete="off">
+            <div class="command-results" id="commandResults"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        // Global Variables
+        let calculatorExpression = '';
+        let calculatorDisplay = '0';
+        let stopwatchInterval = null;
+        let stopwatchTime = 0;
+        let countdownInterval = null;
+        let countdownTime = 0;
+        let isStopwatchRunning = false;
+        let isCountdownRunning = false;
+        let currentImageData = null;
+        let originalImageData = null;
+        let selectedJPGFiles = [];
+        let pdfBlob = null;
+        let processedImageBlob = null;
+        let originalAspectRatio = 1;
+        
+        // Notes stored in memory (localStorage alternative)
+        let notesData = [];
+        
+        // Command palette data
+        const tools = [
+            { name: 'JPG to PDF Converter', description: 'Convert JPG images to PDF document', element: 'jpg-to-pdf' },
+            { name: 'Calculator', description: 'Basic arithmetic calculator', element: 'calculator' },
+            { name: 'Unit Converter', description: 'Convert between different units', element: 'unit-converter' },
+            { name: 'Text Utilities', description: 'Transform and analyze text', element: 'text-utilities' },
+            { name: 'Base64 Encoder/Decoder', description: 'Encode and decode Base64', element: 'base64' },
+            { name: 'URL Encoder/Decoder', description: 'Encode and decode URLs', element: 'url-encoder' },
+            { name: 'JSON Formatter', description: 'Format and validate JSON', element: 'json-formatter' },
+            { name: 'Password Generator', description: 'Generate secure passwords', element: 'password-generator' },
+            { name: 'UUID Generator', description: 'Generate unique identifiers', element: 'uuid-generator' },
+            { name: 'Hash Generator', description: 'Generate SHA-256 hashes', element: 'hash-generator' },
+            { name: 'Image Resizer', description: 'Resize and compress images', element: 'image-resizer' },
+            { name: 'Color Picker', description: 'Pick colors and check contrast', element: 'color-picker' },
+            { name: 'Timer', description: 'Stopwatch and countdown timer', element: 'timer' },
+            { name: 'Quick Notes', description: 'Save and manage notes', element: 'notes' },
+            { name: 'QR Code Generator', description: 'Generate QR codes from text or URLs', element: 'qr-generator' },
+            { name: 'Regex Tester', description: 'Test regular expressions', element: 'regex-tester' },
+            { name: 'CSV to JSON Converter', description: 'Convert CSV data to JSON format', element: 'csv-json' },
+            { name: 'Lorem Ipsum Generator', description: 'Generate placeholder text', element: 'lorem-ipsum' },
+            { name: 'PDF Merge Tool', description: 'Merge multiple PDF files into one', element: 'pdf-merge' },
+            { name: 'PDF to Word Converter', description: 'Convert PDF files to Word documents', element: 'pdf-to-word' }
+        ];
+
+        // Unit conversion data
+        const unitData = {
+            length: {
+                m: 1,
+                km: 1000,
+                cm: 0.01,
+                mm: 0.001,
+                in: 0.0254,
+                ft: 0.3048,
+                yd: 0.9144,
+                mi: 1609.34
+            },
+            weight: {
+                kg: 1,
+                g: 0.001,
+                mg: 0.000001,
+                lb: 0.453592,
+                oz: 0.0283495,
+                ton: 1000
+            },
+            temperature: {
+                celsius: (val, to) => {
+                    if (to === 'fahrenheit') return (val * 9/5) + 32;
+                    if (to === 'kelvin') return val + 273.15;
+                    return val;
+                },
+                fahrenheit: (val, to) => {
+                    if (to === 'celsius') return (val - 32) * 5/9;
+                    if (to === 'kelvin') return (val - 32) * 5/9 + 273.15;
+                    return val;
+                },
+                kelvin: (val, to) => {
+                    if (to === 'celsius') return val - 273.15;
+                    if (to === 'fahrenheit') return (val - 273.15) * 9/5 + 32;
+                    return val;
+                }
+            }
+        };
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            updateUnitOptions();
+            updateColorInfo();
+            loadNotes();
+            setupEventListeners();
+            setupJPGToPDFEventListeners();
+            setupImageResizerEventListeners();
+            setupPDFMergeEventListeners();
+            setupPDFToWordEventListeners();
+            
+            // Set profile image with base64 data from the uploaded image
+            const profileImg = document.getElementById('profileImage');
+            if (profileImg) {
+                // Using a placeholder image URL for demo - replace with actual base64 data
+                profileImg.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&auto=format&q=80';
+                profileImg.onerror = function() {
+                    // Fallback if image fails to load
+                    this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiM2MEE1RkEiLz4KPHN2ZyB4PSIxNSIgeT0iMTAiIHdpZHRoPSIzMCIgaGVpZ2h0PSI0MCI+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4Ij5WRDwvdGV4dD4KPHN2Zz4KPHN2Zz4K';
+                };
+            }
+        });
+
+        // Image Resizer Event Listeners
+        function setupImageResizerEventListeners() {
+            const imageInput = document.getElementById('imageInput');
+            const uploadArea = document.getElementById('imageUploadArea');
+            
+            // Drag and drop functionality
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.classList.add('dragover');
+            });
+            
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.classList.remove('dragover');
+            });
+            
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('dragover');
+                const files = Array.from(e.dataTransfer.files).filter(file => 
+                    file.type.startsWith('image/')
+                );
+                if (files.length > 0) {
+                    imageInput.files = createFileList([files[0]]); // Only take first image
+                    loadImage();
+                }
+            });
+        }
+
+        // Image Resizer Functions
+        function loadImage() {
+            const input = document.getElementById('imageInput');
+            const file = input.files[0];
+            
+            if (!file) {
+                resetImageTool();
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    // Store original data
+                    originalImageData = {
+                        img: img,
+                        width: img.width,
+                        height: img.height,
+                        file: file
+                    };
+                    
+                    originalAspectRatio = img.width / img.height;
+                    
+                    // Update input fields
+                    document.getElementById('newWidth').value = img.width;
+                    document.getElementById('newHeight').value = img.height;
+                    
+                    // Show controls and draw initial canvas
+                    document.getElementById('imageControlsSection').classList.remove('hidden');
+                    drawImageOnCanvas(img, img.width, img.height);
+                    
+                    showToast('Image loaded successfully!', 'success');
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function drawImageOnCanvas(img, width, height) {
+            const canvas = document.getElementById('imageCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = width;
+            canvas.height = height;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, width, height);
+            
+            // Draw image
+            ctx.drawImage(img, 0, 0, width, height);
+            
+            currentImageData = { img, width, height };
+        }
+
+        function maintainAspectRatio(changedDimension) {
+            if (!document.getElementById('maintainAspectRatio').checked || !originalImageData) {
+                return;
+            }
+            
+            const widthInput = document.getElementById('newWidth');
+            const heightInput = document.getElementById('newHeight');
+            
+            if (changedDimension === 'width') {
+                const newWidth = parseInt(widthInput.value);
+                const newHeight = Math.round(newWidth / originalAspectRatio);
+                heightInput.value = newHeight;
+            } else {
+                const newHeight = parseInt(heightInput.value);
+                const newWidth = Math.round(newHeight * originalAspectRatio);
+                widthInput.value = newWidth;
+            }
+        }
+
+        function toggleAspectRatio() {
+            const maintain = document.getElementById('maintainAspectRatio').checked;
+            const widthInput = document.getElementById('newWidth');
+            const heightInput = document.getElementById('newHeight');
+            
+            if (maintain && originalImageData) {
+                // Reset to original aspect ratio
+                const currentWidth = parseInt(widthInput.value);
+                const newHeight = Math.round(currentWidth / originalAspectRatio);
+                heightInput.value = newHeight;
+            }
+        }
+
+        function updateQualityDisplay() {
+            const quality = document.getElementById('quality').value;
+            document.getElementById('qualityValue').textContent = quality + '%';
+        }
+
+        function resizeImage() {
+            if (!originalImageData) {
+                showToast('Please select an image first', 'error');
+                return;
+            }
+            
+            const newWidth = parseInt(document.getElementById('newWidth').value);
+            const newHeight = parseInt(document.getElementById('newHeight').value);
+            const quality = parseInt(document.getElementById('quality').value) / 100;
+            
+            if (newWidth <= 0 || newHeight <= 0) {
+                showToast('Please enter valid dimensions', 'error');
+                return;
+            }
+            
+            // Create new canvas for processing
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = newWidth;
+            canvas.height = newHeight;
+            
+            // Draw resized image
+            ctx.drawImage(originalImageData.img, 0, 0, newWidth, newHeight);
+            
+            // Update display canvas
+            drawImageOnCanvas(originalImageData.img, newWidth, newHeight);
+            
+            // Convert to blob with compression
+            canvas.toBlob(function(blob) {
+                processedImageBlob = blob;
+                
+                // Show download section with file size info
+                const fileSizeKB = (blob.size / 1024).toFixed(2);
+                const originalSizeKB = (originalImageData.file.size / 1024).toFixed(2);
+                
+                document.getElementById('fileSizeInfo').textContent = 
+                    `Original: ${originalSizeKB} KB → Compressed: ${fileSizeKB} KB`;
+                
+                document.getElementById('downloadSection').style.display = 'block';
+                
+                showToast('Image processed successfully!', 'success');
+                
+            }, 'image/jpeg', quality);
+        }
+
+        function downloadProcessedImage() {
+            if (!processedImageBlob) {
+                showToast('No processed image to download', 'error');
+                return;
+            }
+            
+            const url = URL.createObjectURL(processedImageBlob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `resized-image-${Date.now()}.jpg`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            showToast('Image downloaded successfully!', 'success');
+        }
+
+        function resetImageTool() {
+            // Reset all variables
+            currentImageData = null;
+            originalImageData = null;
+            processedImageBlob = null;
+            originalAspectRatio = 1;
+            
+            // Reset UI
+            document.getElementById('imageInput').value = '';
+            document.getElementById('imageControlsSection').classList.add('hidden');
+            document.getElementById('downloadSection').style.display = 'none';
+            document.getElementById('newWidth').value = '';
+            document.getElementById('newHeight').value = '';
+            document.getElementById('quality').value = '90';
+            document.getElementById('qualityValue').textContent = '90%';
+            document.getElementById('maintainAspectRatio').checked = true;
+            
+            // Clear canvas
+            const canvas = document.getElementById('imageCanvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 0;
+            canvas.height = 0;
+        }
+
+        // JPG to PDF Converter Functions
+        function setupJPGToPDFEventListeners() {
+            const jpgInput = document.getElementById('jpgInput');
+            const uploadArea = document.getElementById('jpgUploadArea');
+            
+            jpgInput.addEventListener('change', handleJPGSelection);
+            
+            // Drag and drop functionality
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.classList.add('dragover');
+            });
+            
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.classList.remove('dragover');
+            });
+            
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('dragover');
+                const files = Array.from(e.dataTransfer.files).filter(file => 
+                    file.type === 'image/jpeg' || file.type === 'image/jpg'
+                );
+                if (files.length > 0) {
+                    jpgInput.files = createFileList(files);
+                    handleJPGSelection();
+                }
+            });
+        }
+        
+        function createFileList(files) {
+            const dt = new DataTransfer();
+            files.forEach(file => dt.items.add(file));
+            return dt.files;
+        }
+        
+        function handleJPGSelection() {
+            const files = document.getElementById('jpgInput').files;
+            selectedJPGFiles = Array.from(files);
+            displaySelectedImages();
+        }
+        
+        function displaySelectedImages() {
+            const container = document.getElementById('imagePreviewContainer');
+            
+            if (selectedJPGFiles.length === 0) {
+                container.textContent = 'No images selected';
+                return;
+            }
+            
+            container.innerHTML = '';
+            selectedJPGFiles.forEach((file, index) => {
+                const imageItem = document.createElement('div');
+                imageItem.style.cssText = `
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    padding: 0.5rem;
+                    background: rgba(55, 65, 81, 0.5);
+                    border-radius: 0.5rem;
+                    margin-bottom: 0.5rem;
+                `;
+                
+                imageItem.innerHTML = `
+                    <img src="${URL.createObjectURL(file)}" style="width: 40px; height: 40px; object-fit: cover; border-radius: 0.25rem;">
+                    <span style="flex: 1; font-size: 0.9rem;">${file.name}</span>
+                    <span style="font-size: 0.8rem; color: #9CA3AF;">${(file.size / 1024 / 1024).toFixed(2)} MB</span>
+                    <button onclick="removeSelectedImage(${index})" style="background: #EF4444; color: white; border: none; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.8rem;">Remove</button>
+                `;
+                
+                container.appendChild(imageItem);
+            });
+        }
+        
+        function removeSelectedImage(index) {
+            selectedJPGFiles.splice(index, 1);
+            displaySelectedImages();
+        }
+        
+        function clearJPGSelection() {
+            selectedJPGFiles = [];
+            document.getElementById('jpgInput').value = '';
+            document.getElementById('imagePreviewContainer').textContent = 'No images selected';
+            document.getElementById('pdfDownloadSection').style.display = 'none';
+            pdfBlob = null;
+        }
+        
+        async function convertJPGToPDF() {
+            if (selectedJPGFiles.length === 0) {
+                showToast('Please select at least one JPG image', 'error');
+                return;
+            }
+            
+            try {
+                showToast('Converting images to PDF...', 'info');
+                
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF();
+                const quality = parseFloat(document.getElementById('pdfQuality').value);
+                const orientation = document.getElementById('pageOrientation').value;
+                
+                // Set page orientation
+                if (orientation === 'landscape') {
+                    pdf.deletePage(1);
+                    pdf.addPage('a4', 'landscape');
+                }
+                
+                let isFirstPage = true;
+                
+                for (let file of selectedJPGFiles) {
+                    const imgDataUrl = await fileToDataURL(file);
+                    const img = await loadImageFromDataURL(imgDataUrl);
+                    
+                    if (!isFirstPage) {
+                        pdf.addPage('a4', orientation);
+                    }
+                    
+                    // Calculate dimensions to fit the page
+                    const pageWidth = pdf.internal.pageSize.getWidth();
+                    const pageHeight = pdf.internal.pageSize.getHeight();
+                    const margin = 20; // 20mm margin
+                    
+                    const maxWidth = pageWidth - (margin * 2);
+                    const maxHeight = pageHeight - (margin * 2);
+                    
+                    let imgWidth = img.width;
+                    let imgHeight = img.height;
+                    
+                    // Scale image to fit page while maintaining aspect ratio
+                    const scale = Math.min(maxWidth / imgWidth, maxHeight / imgHeight);
+                    imgWidth *= scale;
+                    imgHeight *= scale;
+                    
+                    // Center image on page
+                    const x = (pageWidth - imgWidth) / 2;
+                    const y = (pageHeight - imgHeight) / 2;
+                    
+                    pdf.addImage(imgDataUrl, 'JPEG', x, y, imgWidth, imgHeight, undefined, 'MEDIUM');
+                    isFirstPage = false;
+                }
+                
+                // Generate PDF blob
+                pdfBlob = pdf.output('blob');
+                
+                // Show download section
+                document.getElementById('pdfDownloadSection').style.display = 'block';
+                showToast('PDF created successfully!', 'success');
+                
+            } catch (error) {
+                console.error('Error converting to PDF:', error);
+                showToast('Error creating PDF. Please try again.', 'error');
+            }
+        }
+        
+        function fileToDataURL(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = e => resolve(e.target.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+        
+        function loadImageFromDataURL(dataURL) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => resolve(img);
+                img.onerror = reject;
+                img.src = dataURL;
+            });
+        }
+        
+        function downloadPDF() {
+            if (!pdfBlob) {
+                showToast('No PDF available for download', 'error');
+                return;
+            }
+            
+            const url = URL.createObjectURL(pdfBlob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `converted-images-${new Date().getTime()}.pdf`;
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast('PDF downloaded successfully!', 'success');
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Search functionality
+            document.getElementById('searchInput').addEventListener('input', debounce(filterTools, 300));
+            
+            // Command palette
+            document.addEventListener('keydown', function(e) {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    toggleCommandPalette();
+                }
+                if (e.key === 'Escape') {
+                    closeCommandPalette();
+                }
+            });
+            
+            document.getElementById('commandInput').addEventListener('input', filterCommandResults);
+            document.getElementById('commandPalette').addEventListener('click', function(e) {
+                if (e.target === this) closeCommandPalette();
+            });
+        }
+
+        // Search and Filter Functions
+        function filterTools() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const toolCards = document.querySelectorAll('.tool-card');
+            
+            toolCards.forEach(card => {
+                const keywords = card.getAttribute('data-keywords');
+                const title = card.querySelector('.tool-title').textContent.toLowerCase();
+                
+                if (!keywords) return; // Skip ad cards
+                
+                if (keywords.toLowerCase().includes(query) || title.includes(query)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Command Palette Functions
+        function toggleCommandPalette() {
+            const palette = document.getElementById('commandPalette');
+            const input = document.getElementById('commandInput');
+            
+            if (palette.classList.contains('active')) {
+                closeCommandPalette();
+            } else {
+                palette.classList.add('active');
+                input.focus();
+                filterCommandResults();
+            }
+        }
+
+        function closeCommandPalette() {
+            const palette = document.getElementById('commandPalette');
+            palette.classList.remove('active');
+            document.getElementById('commandInput').value = '';
+        }
+
+        function filterCommandResults() {
+            const query = document.getElementById('commandInput').value.toLowerCase();
+            const results = document.getElementById('commandResults');
+            
+            const filteredTools = tools.filter(tool => 
+                tool.name.toLowerCase().includes(query) || 
+                tool.description.toLowerCase().includes(query)
+            );
+            
+            results.innerHTML = filteredTools.map((tool, index) => `
+                <div class="command-item ${index === 0 ? 'selected' : ''}" onclick="navigateToTool('${tool.element}')">
+                    <div class="command-item-title">${tool.name}</div>
+                    <div class="command-item-desc">${tool.description}</div>
+                </div>
+            `).join('');
+        }
+
+        function navigateToTool(toolElement) {
+            closeCommandPalette();
+            const element = document.querySelector(`[data-tool="${toolElement}"]`);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Calculator Functions
+        function appendToCalc(value) {
+            const display = document.getElementById('calcDisplay');
+            
+            if (calculatorDisplay === '0' && value !== '.') {
+                calculatorDisplay = value;
+            } else {
+                calculatorDisplay += value;
+            }
+            
+            display.textContent = calculatorDisplay;
+        }
+
+        function clearCalc() {
+            calculatorDisplay = '0';
+            calculatorExpression = '';
+            document.getElementById('calcDisplay').textContent = calculatorDisplay;
+        }
+
+        function deleteLast() {
+            if (calculatorDisplay.length > 1) {
+                calculatorDisplay = calculatorDisplay.slice(0, -1);
+            } else {
+                calculatorDisplay = '0';
+            }
+            document.getElementById('calcDisplay').textContent = calculatorDisplay;
+        }
+
+        function calculate() {
+            try {
+                const result = eval(calculatorDisplay.replace('×', '*'));
+                calculatorDisplay = result.toString();
+                document.getElementById('calcDisplay').textContent = calculatorDisplay;
+            } catch (error) {
+                document.getElementById('calcDisplay').textContent = 'Error';
+                calculatorDisplay = '0';
+            }
+        }
+
+        // Unit Converter Functions
+        function updateUnitOptions() {
+            const unitType = document.getElementById('unitType').value;
+            const fromUnit = document.getElementById('fromUnit');
+            const toUnit = document.getElementById('toUnit');
+            
+            let options = '';
+            
+            if (unitType === 'length') {
+                options = `
+                    <option value="m">Meters</option>
+                    <option value="km">Kilometers</option>
+                    <option value="cm">Centimeters</option>
+                    <option value="mm">Millimeters</option>
+                    <option value="in">Inches</option>
+                    <option value="ft">Feet</option>
+                    <option value="yd">Yards</option>
+                    <option value="mi">Miles</option>
+                `;
+            } else if (unitType === 'weight') {
+                options = `
+                    <option value="kg">Kilograms</option>
+                    <option value="g">Grams</option>
+                    <option value="mg">Milligrams</option>
+                    <option value="lb">Pounds</option>
+                    <option value="oz">Ounces</option>
+                    <option value="ton">Tons</option>
+                `;
+            } else if (unitType === 'temperature') {
+                options = `
+                    <option value="celsius">Celsius</option>
+                    <option value="fahrenheit">Fahrenheit</option>
+                    <option value="kelvin">Kelvin</option>
+                `;
+            }
+            
+            fromUnit.innerHTML = options;
+            toUnit.innerHTML = options;
+            convertUnits();
+        }
+
+        function convertUnits() {
+            const unitType = document.getElementById('unitType').value;
+            const fromValue = parseFloat(document.getElementById('fromValue').value);
+            const fromUnit = document.getElementById('fromUnit').value;
+            const toUnit = document.getElementById('toUnit').value;
+            const toValueInput = document.getElementById('toValue');
+            
+            if (isNaN(fromValue)) {
+                toValueInput.value = '';
+                return;
+            }
+            
+            let result;
+            
+            if (unitType === 'temperature') {
+                result = unitData.temperature[fromUnit](fromValue, toUnit);
+            } else {
+                const baseValue = fromValue * unitData[unitType][fromUnit];
+                result = baseValue / unitData[unitType][toUnit];
+            }
+            
+            toValueInput.value = result.toFixed(6).replace(/\.?0+$/, '');
+        }
+
+        // Text Utilities Functions
+        function updateTextStats() {
+            const text = document.getElementById('textInput').value;
+            const chars = text.length;
+            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            const lines = text.split('\n').length;
+            
+            document.getElementById('textStats').textContent = 
+                `Characters: ${chars} | Words: ${words} | Lines: ${lines}`;
+        }
+
+        function transformText(type) {
+            const input = document.getElementById('textInput');
+            let text = input.value;
+            
+            switch (type) {
+                case 'upper':
+                    text = text.toUpperCase();
+                    break;
+                case 'lower':
+                    text = text.toLowerCase();
+                    break;
+                case 'title':
+                    text = text.replace(/\w\S*/g, (txt) => 
+                        txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+                    break;
+                case 'spaces':
+                    text = text.replace(/\s+/g, '');
+                    break;
+            }
+            
+            input.value = text;
+            updateTextStats();
+        }
+
+        // Base64 Functions
+        function encodeBase64() {
+            const input = document.getElementById('base64Input').value;
+            try {
+                const encoded = btoa(unescape(encodeURIComponent(input)));
+                document.getElementById('base64Result').textContent = encoded;
+            } catch (error) {
+                document.getElementById('base64Result').textContent = 'Error encoding text';
+            }
+        }
+
+        function decodeBase64() {
+            const input = document.getElementById('base64Input').value;
+            try {
+                const decoded = decodeURIComponent(escape(atob(input)));
+                document.getElementById('base64Result').textContent = decoded;
+            } catch (error) {
+                document.getElementById('base64Result').textContent = 'Error: Invalid Base64 input';
+            }
+        }
+
+        // URL Encoder Functions
+        function encodeURL() {
+            const input = document.getElementById('urlInput').value;
+            const encoded = encodeURIComponent(input);
+            document.getElementById('urlResult').textContent = encoded;
+        }
+
+        function decodeURL() {
+            const input = document.getElementById('urlInput').value;
+            try {
+                const decoded = decodeURIComponent(input);
+                document.getElementById('urlResult').textContent = decoded;
+            } catch (error) {
+                document.getElementById('urlResult').textContent = 'Error: Invalid URL encoding';
+            }
+        }
+
+        // JSON Functions
+        function formatJSON() {
+            const input = document.getElementById('jsonInput').value;
+            const result = document.getElementById('jsonResult');
+            
+            try {
+                const parsed = JSON.parse(input);
+                const formatted = JSON.stringify(parsed, null, 2);
+                result.textContent = formatted;
+                result.style.color = '#E5E7EB';
+            } catch (error) {
+                result.textContent = `Error: ${error.message}`;
+                result.style.color = '#EF4444';
+            }
+        }
+
+        function minifyJSON() {
+            const input = document.getElementById('jsonInput').value;
+            const result = document.getElementById('jsonResult');
+            
+            try {
+                const parsed = JSON.parse(input);
+                const minified = JSON.stringify(parsed);
+                result.textContent = minified;
+                result.style.color = '#E5E7EB';
+            } catch (error) {
+                result.textContent = `Error: ${error.message}`;
+                result.style.color = '#EF4444';
+            }
+        }
+
+        // Password Generator Functions
+        function generatePassword() {
+            const length = parseInt(document.getElementById('passwordLength').value);
+            const includeUppercase = document.getElementById('includeUppercase').checked;
+            const includeLowercase = document.getElementById('includeLowercase').checked;
+            const includeNumbers = document.getElementById('includeNumbers').checked;
+            const includeSymbols = document.getElementById('includeSymbols').checked;
+            
+            let charset = '';
+            if (includeUppercase) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            if (includeLowercase) charset += 'abcdefghijklmnopqrstuvwxyz';
+            if (includeNumbers) charset += '0123456789';
+            if (includeSymbols) charset += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+            
+            if (charset === '') {
+                document.getElementById('passwordResult').textContent = 'Please select at least one character type';
+                return;
+            }
+            
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                password += charset.charAt(Math.floor(Math.random() * charset.length));
+            }
+            
+            document.getElementById('passwordResult').textContent = password;
+        }
+
+        // UUID Generator Functions - FIXED
+        function generateUUID() {
+            const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0;
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+            document.getElementById('uuidResult').textContent = uuid;
+        }
+
+        function generateMultipleUUIDs() {
+            const count = parseInt(document.getElementById('uuidCount').value);
+            const uuids = [];
+            
+            for (let i = 0; i < count; i++) {
+                const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                    const r = Math.random() * 16 | 0;
+                    const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
+                uuids.push(uuid);
+            }
+            
+            document.getElementById('multipleUuidResult').textContent = uuids.join('\n');
+        }
+
+        // Hash Generator Functions
+        async function generateHash() {
+            const input = document.getElementById('hashInput').value;
+            const result = document.getElementById('hashResult');
+            
+            if (!input) {
+                result.textContent = 'Please enter text to hash';
+                return;
+            }
+            
+            try {
+                const encoder = new TextEncoder();
+                const data = encoder.encode(input);
+                const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+                result.textContent = hashHex;
+            } catch (error) {
+                result.textContent = 'Error generating hash';
+            }
+        }
+
+        // Color Picker Functions
+        function updateColorInfo() {
+            const color = document.getElementById('colorPicker').value;
+            const bgColor = document.getElementById('bgColorPicker').value;
+            const preview = document.getElementById('colorPreview');
+            const values = document.getElementById('colorValues');
+            
+            // Update preview
+            preview.style.background = `linear-gradient(45deg, ${color} 50%, ${bgColor} 50%)`;
+            
+            // Convert hex to RGB
+            const r = parseInt(color.substr(1,2), 16);
+            const g = parseInt(color.substr(3,2), 16);
+            const b = parseInt(color.substr(5,2), 16);
+            
+            // Convert to HSL
+            const hsl = rgbToHsl(r, g, b);
+            
+            values.textContent = `
+HEX: ${color.toUpperCase()}
+RGB: rgb(${r}, ${g}, ${b})
+HSL: hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`;
+            
+            // Calculate contrast ratio
+            updateContrastRatio(color, bgColor);
+        }
+
+        function rgbToHsl(r, g, b) {
+            r /= 255; g /= 255; b /= 255;
+            const max = Math.max(r, g, b), min = Math.min(r, g, b);
+            let h, s, l = (max + min) / 2;
+            
+            if (max === min) {
+                h = s = 0;
+            } else {
+                const d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                switch (max) {
+                    case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                    case g: h = (b - r) / d + 2; break;
+                    case b: h = (r - g) / d + 4; break;
+                }
+                h /= 6;
+            }
+            
+            return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
+        }
+
+        function updateContrastRatio(color1, color2) {
+            const ratio = getContrastRatio(color1, color2);
+            const result = document.getElementById('contrastResult');
+            
+            let status, className;
+            if (ratio >= 7) {
+                status = 'AAA - Excellent';
+                className = 'contrast-aaa';
+            } else if (ratio >= 4.5) {
+                status = 'AA - Good';
+                className = 'contrast-aa';
+            } else {
+                status = 'Fail - Poor';
+                className = 'contrast-fail';
+            }
+            
+            result.innerHTML = `
+                <div class="contrast-result ${className}">
+                    <strong>Contrast Ratio: ${ratio.toFixed(2)}:1</strong>
+                    <span>${status}</span>
+                </div>
+            `;
+        }
+
+        function getContrastRatio(color1, color2) {
+            const l1 = getLuminance(color1);
+            const l2 = getLuminance(color2);
+            return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+        }
+
+        function getLuminance(hex) {
+            const r = parseInt(hex.substr(1,2), 16) / 255;
+            const g = parseInt(hex.substr(3,2), 16) / 255;
+            const b = parseInt(hex.substr(5,2), 16) / 255;
+            
+            const toLinear = (c) => c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+            
+            return 0.2126 * toLinear(r) + 0.7152 * toLinear(g) + 0.0722 * toLinear(b);
+        }
+
+        // Timer Functions
+        function switchTimerMode(mode) {
+            const stopwatchMode = document.getElementById('stopwatchMode');
+            const countdownMode = document.getElementById('countdownMode');
+            const stopwatchBtn = document.getElementById('stopwatchBtn');
+            const countdownBtn = document.getElementById('countdownBtn');
+            
+            if (mode === 'stopwatch') {
+                stopwatchMode.classList.remove('hidden');
+                countdownMode.classList.add('hidden');
+                stopwatchBtn.classList.remove('btn-secondary');
+                stopwatchBtn.classList.add('btn');
+                countdownBtn.classList.remove('btn');
+                countdownBtn.classList.add('btn-secondary');
+            } else {
+                stopwatchMode.classList.add('hidden');
+                countdownMode.classList.remove('hidden');
+                countdownBtn.classList.remove('btn-secondary');
+                countdownBtn.classList.add('btn');
+                stopwatchBtn.classList.remove('btn');
+                stopwatchBtn.classList.add('btn-secondary');
+                updateCountdownDisplay();
+            }
+        }
+
+        function startStopwatch() {
+            if (!isStopwatchRunning) {
+                isStopwatchRunning = true;
+                stopwatchInterval = setInterval(() => {
+                    stopwatchTime++;
+                    updateStopwatchDisplay();
+                }, 10);
+            }
+        }
+
+        function pauseStopwatch() {
+            isStopwatchRunning = false;
+            clearInterval(stopwatchInterval);
+        }
+
+        function resetStopwatch() {
+            isStopwatchRunning = false;
+            clearInterval(stopwatchInterval);
+            stopwatchTime = 0;
+            updateStopwatchDisplay();
+        }
+
+        function updateStopwatchDisplay() {
+            const centiseconds = stopwatchTime % 100;
+            const seconds = Math.floor(stopwatchTime / 100) % 60;
+            const minutes = Math.floor(stopwatchTime / 6000) % 60;
+            const hours = Math.floor(stopwatchTime / 360000);
+            
+            const display = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}.${centiseconds.toString().padStart(2, '0')}`;
+            document.getElementById('stopwatchTime').textContent = display;
+        }
+
+        function startCountdown() {
+            if (!isCountdownRunning) {
+                if (countdownTime === 0) {
+                    const minutes = parseInt(document.getElementById('countdownMinutes').value) || 0;
+                    const seconds = parseInt(document.getElementById('countdownSeconds').value) || 0;
+                    countdownTime = (minutes * 60 + seconds) * 100;
+                }
+                
+                if (countdownTime > 0) {
+                    isCountdownRunning = true;
+                    countdownInterval = setInterval(() => {
+                        countdownTime--;
+                        updateCountdownDisplay();
+                        
+                        if (countdownTime <= 0) {
+                            pauseCountdown();
+                            showToast("Time's up!", 'success');
+                        }
+                    }, 10);
+                }
+            }
+        }
+
+        function pauseCountdown() {
+            isCountdownRunning = false;
+            clearInterval(countdownInterval);
+        }
+
+        function resetCountdown() {
+            isCountdownRunning = false;
+            clearInterval(countdownInterval);
+            countdownTime = 0;
+            updateCountdownDisplay();
+        }
+
+        function updateCountdownDisplay() {
+            if (countdownTime === 0) {
+                const minutes = parseInt(document.getElementById('countdownMinutes').value) || 0;
+                const seconds = parseInt(document.getElementById('countdownSeconds').value) || 0;
+                const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                document.getElementById('countdownTime').textContent = display;
+            } else {
+                const totalSeconds = Math.ceil(countdownTime / 100);
+                const minutes = Math.floor(totalSeconds / 60);
+                const seconds = totalSeconds % 60;
+                const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                document.getElementById('countdownTime').textContent = display;
+            }
+        }
+
+        // Notes Functions
+        function addNote() {
+            const noteInput = document.getElementById('noteInput');
+            const noteText = noteInput.value.trim();
+            
+            if (noteText) {
+                const note = {
+                    id: Date.now(),
+                    text: noteText,
+                    date: new Date().toLocaleString()
+                };
+                
+                notesData.push(note);
+                noteInput.value = '';
+                displayNotes();
+            }
+        }
+
+        function deleteNote(id) {
+            notesData = notesData.filter(note => note.id !== id);
+            displayNotes();
+        }
+
+        function clearAllNotes() {
+            if (confirm('Are you sure you want to delete all notes?')) {
+                notesData = [];
+                displayNotes();
+            }
+        }
+
+        function displayNotes() {
+            const notesList = document.getElementById('notesList');
+            
+            if (notesData.length === 0) {
+                notesList.innerHTML = '<div style="text-align: center; color: #9CA3AF; padding: 2rem;">No notes saved yet</div>';
+                return;
+            }
+            
+            notesList.innerHTML = notesData.map(note => `
+                <div class="note-item">
+                    <div class="note-content">${note.text}</div>
+                    <div class="note-date">${note.date}</div>
+                    <button class="delete-note" onclick="deleteNote(${note.id})">Delete</button>
+                </div>
+            `).join('');
+        }
+
+        function loadNotes() {
+            displayNotes();
+        }
+
+        // Utility Functions
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast('Copied to clipboard!', 'success');
+                }).catch(() => {
+                    fallbackCopyToClipboard(text);
+                });
+            } else {
+                fallbackCopyToClipboard(text);
+            }
+        }
+
+        function fallbackCopyToClipboard(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showToast('Copied to clipboard!', 'success');
+            } catch (err) {
+                showToast('Failed to copy', 'error');
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            
+            let backgroundColor, borderColor;
+            switch (type) {
+                case 'success':
+                    backgroundColor = '#10B981';
+                    borderColor = '#059669';
+                    break;
+                case 'error':
+                    backgroundColor = '#EF4444';
+                    borderColor = '#DC2626';
+                    break;
+                case 'warning':
+                    backgroundColor = '#F59E0B';
+                    borderColor = '#D97706';
+                    break;
+                default:
+                    backgroundColor = '#60A5FA';
+                    borderColor = '#3B82F6';
+            }
+            
+            toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${backgroundColor};
+                color: white;
+                padding: 12px 24px;
+                border-radius: 8px;
+                border: 1px solid ${borderColor};
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                z-index: 1001;
+                font-weight: 600;
+                opacity: 0;
+                transition: all 0.3s ease;
+                max-width: 300px;
+                word-wrap: break-word;
+                backdrop-filter: blur(10px);
+            `;
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '1';
+                toast.style.transform = 'translateY(0)';
+            }, 10);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(-20px)';
+                setTimeout(() => {
+                    if (document.body.contains(toast)) {
+                        document.body.removeChild(toast);
+                    }
+                }, 300);
+            }, 4000);
+        }
+
+        // Performance optimization: Debounce function
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Command palette keyboard navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const commandInput = document.getElementById('commandInput');
+            if (commandInput) {
+                commandInput.addEventListener('keydown', function(e) {
+                    const results = document.querySelectorAll('.command-item');
+                    const selected = document.querySelector('.command-item.selected');
+                    let selectedIndex = Array.from(results).indexOf(selected);
+                    
+                    if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        if (selected) selected.classList.remove('selected');
+                        selectedIndex = (selectedIndex + 1) % results.length;
+                        if (results[selectedIndex]) results[selectedIndex].classList.add('selected');
+                    } else if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        if (selected) selected.classList.remove('selected');
+                        selectedIndex = selectedIndex <= 0 ? results.length - 1 : selectedIndex - 1;
+                        if (results[selectedIndex]) results[selectedIndex].classList.add('selected');
+                    } else if (e.key === 'Enter') {
+                        e.preventDefault();
+                        if (selected) {
+                            const toolElement = tools.find(tool => tool.name === selected.querySelector('.command-item-title').textContent)?.element;
+                            if (toolElement) navigateToTool(toolElement);
+                        }
+                    }
+                });
+            }
+            
+            // Update countdown timer inputs
+            const countdownMinutes = document.getElementById('countdownMinutes');
+            const countdownSeconds = document.getElementById('countdownSeconds');
+            if (countdownMinutes) countdownMinutes.addEventListener('input', updateCountdownDisplay);
+            if (countdownSeconds) countdownSeconds.addEventListener('input', updateCountdownDisplay);
+        });
+
+        // Intersection observer for smooth animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Initialize animations after DOM load
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.tool-card, .ad-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+
+        // Enhanced error handling
+        window.addEventListener('error', function(e) {
+            if (e.message.includes('jspdf')) {
+                showToast('PDF library failed to load. Please refresh the page.', 'error');
+            }
+        });
+
+        // Handle enter key for notes
+        document.addEventListener('DOMContentLoaded', function() {
+            const noteInput = document.getElementById('noteInput');
+            if (noteInput) {
+                noteInput.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+                        e.preventDefault();
+                        addNote();
+                    }
+                });
+            }
+        });
+
+        // Auto-resize textareas
+        document.addEventListener('input', function(e) {
+            if (e.target.tagName.toLowerCase() === 'textarea') {
+                e.target.style.height = 'auto';
+                e.target.style.height = e.target.scrollHeight + 'px';
+            }
+        });
+
+        // Prevent negative values in number inputs
+        document.addEventListener('input', function(e) {
+            if (e.target.type === 'number' && e.target.value < 0) {
+                e.target.value = 0;
+            }
+        });
+
+        // QR Code Generator Functions
+        let qrCodeDataURL = null;
+        
+        function generateQR() {
+            const text = document.getElementById('qrInput').value.trim();
+            const size = document.getElementById('qrSize').value;
+            
+            if (!text) {
+                showToast('Please enter text or URL to generate QR code', 'error');
+                return;
+            }
+            
+            // Using QR Server API for QR code generation
+            const qrURL = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(text)}`;
+            
+            const qrResult = document.getElementById('qrResult');
+            qrResult.innerHTML = `<img src="${qrURL}" alt="QR Code" style="max-width: 100%; border-radius: 0.5rem;">`;
+            
+            qrCodeDataURL = qrURL;
+            document.getElementById('qrDownloadSection').style.display = 'block';
+            
+            showToast('QR Code generated successfully!', 'success');
+        }
+        
+        function downloadQR() {
+            if (!qrCodeDataURL) {
+                showToast('No QR code to download', 'error');
+                return;
+            }
+            
+            const a = document.createElement('a');
+            a.href = qrCodeDataURL;
+            a.download = `qr-code-${Date.now()}.png`;
+            a.click();
+            
+            showToast('QR Code download started!', 'success');
+        }
+        
+        // Regex Tester Functions
+        function testRegex() {
+            const pattern = document.getElementById('regexPattern').value;
+            const testText = document.getElementById('regexTestText').value;
+            const result = document.getElementById('regexResult');
+            
+            if (!pattern) {
+                result.textContent = 'Enter a regex pattern to test';
+                return;
+            }
+            
+            if (!testText) {
+                result.textContent = 'Enter test text to match against';
+                return;
+            }
+            
+            try {
+                let flags = '';
+                if (document.getElementById('regexGlobal').checked) flags += 'g';
+                if (document.getElementById('regexIgnoreCase').checked) flags += 'i';
+                if (document.getElementById('regexMultiline').checked) flags += 'm';
+                
+                const regex = new RegExp(pattern, flags);
+                const matches = testText.match(regex);
+                
+                if (matches) {
+                    result.innerHTML = `
+                        <strong>✅ ${matches.length} match(es) found:</strong><br><br>
+                        ${matches.map((match, index) => `<span style="background: rgba(16, 185, 129, 0.2); padding: 0.25rem 0.5rem; border-radius: 0.25rem; margin: 0.25rem;">Match ${index + 1}: "${match}"</span>`).join('<br>')}
+                    `;
+                } else {
+                    result.innerHTML = '<strong style="color: #EF4444;">❌ No matches found</strong>';
+                }
+            } catch (error) {
+                result.innerHTML = `<strong style="color: #EF4444;">❌ Invalid regex pattern:</strong><br>${error.message}`;
+            }
+        }
+        
+        // CSV to JSON Converter Functions
+        let convertedData = null;
+        
+        function convertCSVToJSON() {
+            const csvText = document.getElementById('csvInput').value.trim();
+            const delimiter = document.getElementById('csvDelimiter').value;
+            const hasHeaders = document.getElementById('csvHasHeaders').checked;
+            const result = document.getElementById('csvJsonResult');
+            
+            if (!csvText) {
+                result.textContent = 'Please enter CSV data to convert';
+                return;
+            }
+            
+            try {
+                const lines = csvText.split('\n').filter(line => line.trim());
+                const data = [];
+                
+                let headers = [];
+                let startIndex = 0;
+                
+                if (hasHeaders && lines.length > 0) {
+                    headers = lines[0].split(delimiter).map(h => h.trim().replace(/"/g, ''));
+                    startIndex = 1;
+                } else {
+                    // Generate generic headers
+                    const firstLine = lines[0] ? lines[0].split(delimiter) : [];
+                    headers = firstLine.map((_, index) => `column_${index + 1}`);
+                }
+                
+                for (let i = startIndex; i < lines.length; i++) {
+                    const values = lines[i].split(delimiter).map(v => v.trim().replace(/"/g, ''));
+                    const obj = {};
+                    
+                    headers.forEach((header, index) => {
+                        obj[header] = values[index] || '';
+                    });
+                    
+                    data.push(obj);
+                }
+                
+                convertedData = { type: 'json', data: JSON.stringify(data, null, 2) };
+                result.textContent = convertedData.data;
+                result.style.color = '#E5E7EB';
+                
+                document.getElementById('csvDownloadSection').style.display = 'block';
+                showToast('CSV converted to JSON successfully!', 'success');
+                
+            } catch (error) {
+                result.textContent = `Error converting CSV: ${error.message}`;
+                result.style.color = '#EF4444';
+            }
+        }
+        
+        function convertJSONToCSV() {
+            const csvText = document.getElementById('csvInput').value.trim();
+            const delimiter = document.getElementById('csvDelimiter').value;
+            const result = document.getElementById('csvJsonResult');
+            
+            if (!csvText) {
+                result.textContent = 'Please enter JSON data to convert';
+                return;
+            }
+            
+            try {
+                const jsonData = JSON.parse(csvText);
+                
+                if (!Array.isArray(jsonData) || jsonData.length === 0) {
+                    throw new Error('JSON must be an array of objects');
+                }
+                
+                const headers = Object.keys(jsonData[0]);
+                let csvOutput = headers.join(delimiter) + '\n';
+                
+                jsonData.forEach(row => {
+                    const values = headers.map(header => {
+                        const value = row[header] || '';
+                        return typeof value === 'string' && value.includes(delimiter) 
+                            ? `"${value}"` : value;
+                    });
+                    csvOutput += values.join(delimiter) + '\n';
+                });
+                
+                convertedData = { type: 'csv', data: csvOutput };
+                result.textContent = convertedData.data;
+                result.style.color = '#E5E7EB';
+                
+                document.getElementById('csvDownloadSection').style.display = 'block';
+                showToast('JSON converted to CSV successfully!', 'success');
+                
+            } catch (error) {
+                result.textContent = `Error converting JSON: ${error.message}`;
+                result.style.color = '#EF4444';
+            }
+        }
+        
+        function downloadConvertedData() {
+            if (!convertedData) {
+                showToast('No converted data to download', 'error');
+                return;
+            }
+            
+            const blob = new Blob([convertedData.data], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `converted-data-${Date.now()}.${convertedData.type === 'json' ? 'json' : 'csv'}`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            showToast('File downloaded successfully!', 'success');
+        }
+        
+        // Lorem Ipsum Generator Functions
+        const loremWords = [
+            'lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur', 'adipiscing', 'elit',
+            'sed', 'do', 'eiusmod', 'tempor', 'incididunt', 'ut', 'labore', 'et', 'dolore',
+            'magna', 'aliqua', 'enim', 'ad', 'minim', 'veniam', 'quis', 'nostrud',
+            'exercitation', 'ullamco', 'laboris', 'nisi', 'aliquip', 'ex', 'ea', 'commodo',
+            'consequat', 'duis', 'aute', 'irure', 'in', 'reprehenderit', 'voluptate',
+            'velit', 'esse', 'cillum', 'fugiat', 'nulla', 'pariatur', 'excepteur', 'sint',
+            'occaecat', 'cupidatat', 'non', 'proident', 'sunt', 'culpa', 'qui', 'officia',
+            'deserunt', 'mollit', 'anim', 'id', 'est', 'laborum', 'at', 'vero', 'eos',
+            'accusamus', 'accusantium', 'doloremque', 'laudantium', 'totam', 'rem',
+            'aperiam', 'eaque', 'ipsa', 'quae', 'ab', 'illo', 'inventore', 'veritatis',
+            'architecto', 'beatae', 'vitae', 'dicta', 'sunt', 'explicabo', 'nemo',
+            'ipsam', 'quia', 'voluptas', 'aspernatur', 'aut', 'odit', 'fugit'
+        ];
+        
+        function generateLorem() {
+            const type = document.getElementById('loremType').value;
+            const count = parseInt(document.getElementById('loremCount').value);
+            const startWithLorem = document.getElementById('startWithLorem').checked;
+            const result = document.getElementById('loremResult');
+            
+            let output = '';
+            
+            if (type === 'words') {
+                const words = [];
+                if (startWithLorem) {
+                    words.push('Lorem', 'ipsum', 'dolor', 'sit', 'amet');
+                }
+                
+                while (words.length < count) {
+                    const randomWord = loremWords[Math.floor(Math.random() * loremWords.length)];
+                    words.push(randomWord);
+                }
+                
+                output = words.slice(0, count).join(' ');
+                
+            } else if (type === 'sentences') {
+                for (let i = 0; i < count; i++) {
+                    const sentenceLength = Math.floor(Math.random() * 10) + 8;
+                    const words = [];
+                    
+                    if (i === 0 && startWithLorem) {
+                        words.push('Lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur', 'adipiscing', 'elit');
+                    }
+                    
+                    while (words.length < sentenceLength) {
+                        const randomWord = loremWords[Math.floor(Math.random() * loremWords.length)];
+                        words.push(randomWord);
+                    }
+                    
+                    const sentence = words.slice(0, sentenceLength).join(' ');
+                    output += sentence.charAt(0).toUpperCase() + sentence.slice(1) + '. ';
+                }
+                
+            } else { // paragraphs
+                for (let i = 0; i < count; i++) {
+                    const paragraphLength = Math.floor(Math.random() * 6) + 4;
+                    const sentences = [];
+                    
+                    for (let j = 0; j < paragraphLength; j++) {
+                        const sentenceLength = Math.floor(Math.random() * 10) + 8;
+                        const words = [];
+                        
+                        if (i === 0 && j === 0 && startWithLorem) {
+                            words.push('Lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur', 'adipiscing', 'elit');
+                        }
+                        
+                        while (words.length < sentenceLength) {
+                            const randomWord = loremWords[Math.floor(Math.random() * loremWords.length)];
+                            words.push(randomWord);
+                        }
+                        
+                        const sentence = words.slice(0, sentenceLength).join(' ');
+                        sentences.push(sentence.charAt(0).toUpperCase() + sentence.slice(1) + '.');
+                    }
+                    
+                    output += sentences.join(' ');
+                    if (i < count - 1) output += '\n\n';
+                }
+            }
+            
+            result.textContent = output;
+            showToast('Lorem ipsum text generated!', 'success');
+        }
+        
+        function clearLorem() {
+            document.getElementById('loremResult').textContent = 'Generated lorem ipsum text will appear here';
+        }
+
+        // PDF Tools Global Variables
+        let selectedPDFFiles = [];
+        let mergedPDFBlob = null;
+        let selectedPDFForConversion = null;
+        let convertedDocumentBlob = null;
+
+        // PDF Merge Tool Functions
+        function setupPDFMergeEventListeners() {
+            const pdfMergeInput = document.getElementById('pdfMergeInput');
+            const uploadArea = document.getElementById('pdfMergeUploadArea');
+            
+            if (pdfMergeInput) {
+                pdfMergeInput.addEventListener('change', handlePDFMergeSelection);
+            }
+            
+            if (uploadArea) {
+                // Drag and drop functionality
+                uploadArea.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.add('dragover');
+                });
+                
+                uploadArea.addEventListener('dragleave', () => {
+                    uploadArea.classList.remove('dragover');
+                });
+                
+                uploadArea.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.remove('dragover');
+                    const files = Array.from(e.dataTransfer.files).filter(file => 
+                        file.type === 'application/pdf'
+                    );
+                    if (files.length > 0) {
+                        pdfMergeInput.files = createFileList(files);
+                        handlePDFMergeSelection();
+                    }
+                });
+            }
+        }
+        
+        function handlePDFMergeSelection() {
+            const files = document.getElementById('pdfMergeInput').files;
+            selectedPDFFiles = Array.from(files);
+            displaySelectedPDFs();
+        }
+        
+        function displaySelectedPDFs() {
+            const container = document.getElementById('pdfMergePreviewContainer');
+            
+            if (selectedPDFFiles.length === 0) {
+                container.textContent = 'No PDF files selected';
+                return;
+            }
+            
+            container.innerHTML = '';
+            selectedPDFFiles.forEach((file, index) => {
+                const pdfItem = document.createElement('div');
+                pdfItem.style.cssText = `
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    padding: 0.5rem;
+                    background: rgba(55, 65, 81, 0.5);
+                    border-radius: 0.5rem;
+                    margin-bottom: 0.5rem;
+                `;
+                
+                pdfItem.innerHTML = `
+                    <span style="font-size: 1.2rem;">📄</span>
+                    <span style="flex: 1; font-size: 0.9rem;">${file.name}</span>
+                    <span style="font-size: 0.8rem; color: #9CA3AF;">${(file.size / 1024 / 1024).toFixed(2)} MB</span>
+                    <button onclick="removeSelectedPDF(${index})" style="background: #EF4444; color: white; border: none; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.8rem;">Remove</button>
+                `;
+                
+                container.appendChild(pdfItem);
+            });
+        }
+        
+        function removeSelectedPDF(index) {
+            selectedPDFFiles.splice(index, 1);
+            displaySelectedPDFs();
+        }
+        
+        function clearPDFMergeSelection() {
+            selectedPDFFiles = [];
+            document.getElementById('pdfMergeInput').value = '';
+            document.getElementById('pdfMergePreviewContainer').textContent = 'No PDF files selected';
+            document.getElementById('pdfMergeDownloadSection').style.display = 'none';
+            mergedPDFBlob = null;
+        }
+        
+        async function mergePDFs() {
+            if (selectedPDFFiles.length < 2) {
+                showToast('Please select at least 2 PDF files to merge', 'error');
+                return;
+            }
+            
+            try {
+                showToast('Merging PDF files... This may take a moment', 'info');
+                
+                // Note: This is a simplified implementation
+                // In a real-world scenario, you'd use a PDF library like pdf-lib
+                showToast('PDF merge functionality requires a PDF processing library. This is a demo interface.', 'warning');
+                
+                // Simulate successful merge for demo
+                setTimeout(() => {
+                    document.getElementById('pdfMergeDownloadSection').style.display = 'block';
+                    showToast('PDF files merged successfully! (Demo mode)', 'success');
+                }, 2000);
+                
+            } catch (error) {
+                console.error('Error merging PDFs:', error);
+                showToast('Error merging PDF files. Please try again.', 'error');
+            }
+        }
+        
+        function downloadMergedPDF() {
+            showToast('Download functionality would work with actual PDF processing. This is a demo.', 'info');
+        }
+
+        // PDF to Word Converter Functions
+        function setupPDFToWordEventListeners() {
+            const pdfToWordInput = document.getElementById('pdfToWordInput');
+            const uploadArea = document.getElementById('pdfToWordUploadArea');
+            
+            if (pdfToWordInput) {
+                pdfToWordInput.addEventListener('change', handlePDFToWordSelection);
+            }
+            
+            if (uploadArea) {
+                // Drag and drop functionality
+                uploadArea.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.add('dragover');
+                });
+                
+                uploadArea.addEventListener('dragleave', () => {
+                    uploadArea.classList.remove('dragover');
+                });
+                
+                uploadArea.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.remove('dragover');
+                    const files = Array.from(e.dataTransfer.files).filter(file => 
+                        file.type === 'application/pdf'
+                    );
+                    if (files.length > 0) {
+                        pdfToWordInput.files = createFileList([files[0]]); // Only first file
+                        handlePDFToWordSelection();
+                    }
+                });
+            }
+        }
+        
+        function handlePDFToWordSelection() {
+            const file = document.getElementById('pdfToWordInput').files[0];
+            selectedPDFForConversion = file;
+            displaySelectedPDFForConversion();
+        }
+        
+        function displaySelectedPDFForConversion() {
+            const container = document.getElementById('pdfToWordPreviewContainer');
+            
+            if (!selectedPDFForConversion) {
+                container.textContent = 'No PDF file selected';
+                return;
+            }
+            
+            container.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 1rem; padding: 0.5rem; background: rgba(55, 65, 81, 0.5); border-radius: 0.5rem;">
+                    <span style="font-size: 1.2rem;">📄</span>
+                    <span style="flex: 1; font-size: 0.9rem;">${selectedPDFForConversion.name}</span>
+                    <span style="font-size: 0.8rem; color: #9CA3AF;">${(selectedPDFForConversion.size / 1024 / 1024).toFixed(2)} MB</span>
+                </div>
+            `;
+        }
+        
+        function clearPDFToWordSelection() {
+            selectedPDFForConversion = null;
+            document.getElementById('pdfToWordInput').value = '';
+            document.getElementById('pdfToWordPreviewContainer').textContent = 'No PDF file selected';
+            document.getElementById('pdfToWordDownloadSection').style.display = 'none';
+            convertedDocumentBlob = null;
+        }
+        
+        async function convertPDFToWord() {
+            if (!selectedPDFForConversion) {
+                showToast('Please select a PDF file to convert', 'error');
+                return;
+            }
+            
+            try {
+                showToast('Converting PDF to Word... This may take a moment', 'info');
+                
+                // Note: This is a simplified implementation
+                // In a real-world scenario, you'd use a PDF to Word conversion service or library
+                showToast('PDF to Word conversion requires specialized processing. This is a demo interface.', 'warning');
+                
+                // Simulate successful conversion for demo
+                setTimeout(() => {
+                    document.getElementById('pdfToWordDownloadSection').style.display = 'block';
+                    showToast('PDF converted to Word successfully! (Demo mode)', 'success');
+                }, 2000);
+                
+            } catch (error) {
+                console.error('Error converting PDF to Word:', error);
+                showToast('Error converting PDF file. Please try again.', 'error');
+            }
+        }
+        
+        function downloadConvertedDocument() {
+            const format = document.getElementById('conversionFormat').value;
+            showToast(`Download .${format} file functionality would work with actual PDF processing. This is a demo.`, 'info');
+        }
+
+        // Performance optimizations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add will-change for better performance
+            document.querySelectorAll('.tool-card, .ad-card').forEach(card => {
+                card.style.willChange = 'transform';
+            });
+            
+            // Remove will-change after animation
+            setTimeout(() => {
+                document.querySelectorAll('.tool-card, .ad-card').forEach(card => {
+                    card.style.willChange = 'auto';
+                });
+            }, 2000);
+        });
+
+    </script>
+</body>
+</html>
