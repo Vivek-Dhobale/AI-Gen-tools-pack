@@ -162,35 +162,6 @@
             }
         }
         
-        /* Profile Image Styles */
-        .profile-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 3px solid rgba(96, 165, 250, 0.5);
-            box-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
-            transition: all 0.3s ease;
-            animation: profilePulse 3s ease-in-out infinite;
-            object-fit: cover;
-            cursor: pointer;
-        }
-        
-        .profile-image:hover {
-            transform: scale(1.1) rotate(5deg);
-            border-color: rgba(96, 165, 250, 0.8);
-            box-shadow: 0 0 30px rgba(96, 165, 250, 0.6);
-        }
-        
-        @keyframes profilePulse {
-            0%, 100% { 
-                box-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
-                border-color: rgba(96, 165, 250, 0.5);
-            }
-            50% { 
-                box-shadow: 0 0 30px rgba(96, 165, 250, 0.6);
-                border-color: rgba(96, 165, 250, 0.8);
-            }
-        }
         
         .search-container {
             position: relative;
@@ -3535,6 +3506,7 @@ HSL: hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`;
     </script>
 </body>
 </html>
+
 
 
 
