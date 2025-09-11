@@ -1695,10 +1695,7 @@
                 particlesContainer.appendChild(particle);
             }
         }
-         // Initialize the page
-        window.addEventListener('load', function() {
-            createParticles();
-         });
+       
         
         // Global Variables
         let calculatorExpression = '';
@@ -3526,11 +3523,16 @@ HSL: hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`;
                 });
             }, 2000);
         });
-           
+
+          // Initialize the page
+        window.addEventListener('load', function() {
+            createParticles();
+         });
 
     </script>
 </body>
 </html>
+
 
 
 
